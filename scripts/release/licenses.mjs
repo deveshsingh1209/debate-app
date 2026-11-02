@@ -32,7 +32,8 @@ const pkgs = new Map();
 (function walk(deps) {
   for (const [name, d] of Object.entries(deps ?? {})) {
     // This repository's own workspaces (server, web) are not third-party: walk through them.
-    if (!d.path || !d.version || !d.path.split(path.sep).includes('node_modules')) { walk(d.dependencies); continue; }
+    // Newer npm reports a workspace at its node_modules link, so `resolved: file:` identifies it too.
+    if (!d.path || !d.version || !d.path.split(path.sep).includes('node_modules') || d.resolved?.startsWith('file:')) { walk(d.dependencies); continue; }
     const key = `${name}@${d.version}`;
     if (!pkgs.has(key)) pkgs.set(key, { name, version: d.version, dir: d.path });
     walk(d.dependencies);

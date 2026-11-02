@@ -21,7 +21,7 @@ Self-hosted through the Fontsource packages; no font is fetched from the interne
 - **@anthropic-ai/claude-agent-sdk@0.1.77** (SEE LICENSE IN README.md). Proprietary (Anthropic, "all rights reserved", use under Anthropic's legal terms). Not redistributed by this project: npm installs it on the user's machine from the npm registry. Keep node_modules out of every release artefact.
 - **@img/sharp-libvips-darwin-arm64@1.0.4** (LGPL-3.0-or-later). LGPL-3.0-or-later. A prebuilt shared library that npm installs per platform as an optional dependency of the Claude Agent SDK (through sharp). It is loaded dynamically, not modified and not shipped in this repository or its zip, so the LGPL asks nothing of this project; anyone who redistributes node_modules must offer its source (github.com/lovell/sharp-libvips).
 - **@openai/codex-sdk** drives the Codex CLI (`@openai/codex`, Apache-2.0), which npm installs with its platform binary.
-- 5 packages are **BlueOak-1.0.0**, a permissive licence like MIT (common in the npm/isaacs ecosystem). Allowed.
+- 6 packages are **BlueOak-1.0.0**, a permissive licence like MIT (common in the npm/isaacs ecosystem). Allowed.
 
 ## All production packages
 
@@ -48,6 +48,7 @@ Self-hosted through the Fontsource packages; no font is fetched from the interne
 | @fontsource/rajdhani | 5.3.0 | OFL-1.1 | https://github.com/fontsource/font-files |
 | @img/sharp-darwin-arm64 | 0.33.5 | Apache-2.0 | https://github.com/lovell/sharp |
 | @img/sharp-libvips-darwin-arm64 | 1.0.4 | LGPL-3.0-or-later | https://github.com/lovell/sharp-libvips |
+| @isaacs/nonrecursive-glob-match | 1.0.3 | BlueOak-1.0.0 |  |
 | @lukeed/ms | 2.0.2 | MIT | lukeed/ms |
 | @openai/codex | 0.164.0 | Apache-2.0 | https://github.com/openai/codex |
 | @openai/codex-darwin-arm64 | 0.164.0-darwin-arm64 | Apache-2.0 | https://github.com/openai/codex |
@@ -78,7 +79,7 @@ Self-hosted through the Fontsource packages; no font is fetched from the interne
 | fflate | 0.8.3 | MIT | https://github.com/101arrowz/fflate |
 | find-my-way | 9.7.0 | MIT | https://github.com/delvedor/find-my-way |
 | framer-motion | 12.42.2 | MIT | https://github.com/motiondivision/motion/ |
-| glob | 13.0.6 | BlueOak-1.0.0 | git@github.com:isaacs/node-glob |
+| glob | 14.0.3 | BlueOak-1.0.0 | git@github.com:isaacs/node-glob |
 | http-errors | 2.0.1 | MIT | jshttp/http-errors |
 | inherits | 2.0.4 | ISC | git://github.com/isaacs/inherits |
 | ipaddr.js | 2.4.0 | MIT | git://github.com/whitequark/ipaddr.js |
@@ -87,12 +88,12 @@ Self-hosted through the Fontsource packages; no font is fetched from the interne
 | light-my-request | 6.6.0 | BSD-3-Clause | https://github.com/fastify/light-my-request |
 | lru-cache | 11.5.3 | BlueOak-1.0.0 | ssh://git@github.com/isaacs/node-lru-cache |
 | mime | 3.0.0 | MIT | https://github.com/broofa/mime |
-| minimatch | 10.2.6 | BlueOak-1.0.0 | git@github.com:isaacs/minimatch |
+| minimatch | 11.0.4 | BlueOak-1.0.0 | git@github.com:isaacs/minimatch |
 | minipass | 7.1.3 | BlueOak-1.0.0 | https://github.com/isaacs/minipass |
 | motion-dom | 12.42.2 | MIT | https://github.com/motiondivision/motion |
 | motion-utils | 12.39.0 | MIT | https://github.com/motiondivision/motion |
 | on-exit-leak-free | 2.1.2 | MIT | https://github.com/mcollina/on-exit-or-gc |
-| path-scurry | 2.0.2 | BlueOak-1.0.0 | https://github.com/isaacs/path-scurry |
+| path-scurry | 3.0.0 | BlueOak-1.0.0 | https://github.com/isaacs/path-scurry |
 | pino | 10.3.1 | MIT | https://github.com/pinojs/pino |
 | pino-abstract-transport | 3.0.0 | MIT | https://github.com/pinojs/pino-abstract-transport |
 | pino-std-serializers | 7.1.0 | MIT | ssh://git@github.com/pinojs/pino-std-serializers |
@@ -1099,6 +1100,66 @@ third-party archives.
 (no licence file in the package; package.json says LGPL-3.0-or-later)
 ```
 
+### BlueOak-1.0.0: @isaacs/nonrecursive-glob-match@1.0.3, lru-cache@11.5.3, minipass@7.1.3, path-scurry@3.0.0
+
+```text
+# Blue Oak Model License
+
+Version 1.0.0
+
+## Purpose
+
+This license gives everyone as much permission to work with
+this software as possible, while protecting contributors
+from liability.
+
+## Acceptance
+
+In order to receive this license, you must agree to its
+rules.  The rules of this license are both obligations
+under that agreement and conditions to your license.
+You must not do anything with this software that triggers
+a rule that you cannot or will not follow.
+
+## Copyright
+
+Each contributor licenses you to do everything with this
+software that would otherwise infringe that contributor's
+copyright in it.
+
+## Notices
+
+You must ensure that everyone who gets a copy of
+any part of this software from you, with or without
+changes, also gets the text of this license or a link to
+<https://blueoakcouncil.org/license/1.0.0>.
+
+## Excuse
+
+If anyone notifies you in writing that you have not
+complied with [Notices](#notices), you can keep your
+license by taking all practical steps to comply within 30
+days after the notice.  If you do not do so, your license
+ends immediately.
+
+## Patent
+
+Each contributor licenses you to do everything with this
+software that would otherwise infringe any patent claims
+they can license or become able to license.
+
+## Reliability
+
+No contributor can revoke this license.
+
+## No Liability
+
+***As far as the law allows, this software comes as is,
+without any warranty or condition, and no contributor
+will be liable to anyone for any damages related to this
+software or this license, under any kind of legal claim.***
+```
+
 ### MIT: @lukeed/ms@2.0.2
 
 ```text
@@ -1923,7 +1984,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-### BlueOak-1.0.0: glob@13.0.6
+### BlueOak-1.0.0: glob@14.0.3
 
 ```text
 All packages under `src/` are licensed according to the terms in
@@ -2125,66 +2186,6 @@ The complete list of contributors can be found at:
 - https://github.com/fastify/light-my-request/graphs/contributors
 ```
 
-### BlueOak-1.0.0: lru-cache@11.5.3, minipass@7.1.3, path-scurry@2.0.2
-
-```text
-# Blue Oak Model License
-
-Version 1.0.0
-
-## Purpose
-
-This license gives everyone as much permission to work with
-this software as possible, while protecting contributors
-from liability.
-
-## Acceptance
-
-In order to receive this license, you must agree to its
-rules.  The rules of this license are both obligations
-under that agreement and conditions to your license.
-You must not do anything with this software that triggers
-a rule that you cannot or will not follow.
-
-## Copyright
-
-Each contributor licenses you to do everything with this
-software that would otherwise infringe that contributor's
-copyright in it.
-
-## Notices
-
-You must ensure that everyone who gets a copy of
-any part of this software from you, with or without
-changes, also gets the text of this license or a link to
-<https://blueoakcouncil.org/license/1.0.0>.
-
-## Excuse
-
-If anyone notifies you in writing that you have not
-complied with [Notices](#notices), you can keep your
-license by taking all practical steps to comply within 30
-days after the notice.  If you do not do so, your license
-ends immediately.
-
-## Patent
-
-Each contributor licenses you to do everything with this
-software that would otherwise infringe any patent claims
-they can license or become able to license.
-
-## Reliability
-
-No contributor can revoke this license.
-
-## No Liability
-
-***As far as the law allows, this software comes as is,
-without any warranty or condition, and no contributor
-will be liable to anyone for any damages related to this
-software or this license, under any kind of legal claim.***
-```
-
 ### MIT: mime@3.0.0
 
 ```text
@@ -2211,7 +2212,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
 
-### BlueOak-1.0.0: minimatch@10.2.6
+### BlueOak-1.0.0: minimatch@11.0.4
 
 ```text
 # Blue Oak Model License
