@@ -18,7 +18,10 @@ jobs:
     name: ${{ matrix.os }} / Node ${{ matrix.node }}
     runs-on: ${{ matrix.os }}
     # Windows has not had a green run yet: it reports, it does not block.
-    # Remove this line once it passes.
+    # Its first run failed in `npm ci` compiling better-sqlite3 (no Visual
+    # Studio Build Tools); the app now uses Node's built-in SQLite and the
+    # "No native compile" step below proves nothing builds. Remove this line
+    # once Windows passes.
     continue-on-error: ${{ matrix.os == 'windows-latest' }}
     timeout-minutes: 30
     strategy:
@@ -26,6 +29,11 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         node: [22, 24]
+        include:
+          # The oldest supported Node (engines): first with node:sqlite unflagged,
+          # and one that prints the ExperimentalWarning server/src/sqlite.ts drops.
+          - os: ubuntu-latest
+            node: 22.13.0
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -33,6 +41,9 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: npm
       - run: npm ci
+      # Installing must need no compiler (node-gyp, Visual Studio, Xcode tools, build-essential).
+      - name: No native compile
+        run: node scripts/ci/no-native-build.mjs
       - run: npm run typecheck
       - run: npm run build
       # Linux and macOS: the full suite. Windows: the same suites minus the
