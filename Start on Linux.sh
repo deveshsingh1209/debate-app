@@ -19,13 +19,14 @@ echo "--------------"
 
 need_node() {
   echo
-  echo "The app needs a free program called Node.js (version 22 or newer), and it is $1."
+  echo "The app needs a free program called Node.js (version 22.13 or newer), and it is $1."
   echo
   echo "How to get it:"
   echo "  1. Open https://nodejs.org/en/download in your browser."
   echo "  2. Choose 'Linux', pick the 'LTS' version and follow the two or three commands shown there."
   echo "     (Your distribution may also offer it: for example 'sudo apt install nodejs npm' is often"
   echo "      too old, so prefer the commands on nodejs.org.)"
+  echo "     Already have an older Node.js? The same commands update it. With nvm: 'nvm install --lts'."
   echo "  3. Run this file again."
   if [ -t 0 ] && command -v xdg-open >/dev/null 2>&1; then
     echo
@@ -41,8 +42,8 @@ if ! command -v node >/dev/null 2>&1; then
   need_node "not installed on this computer"
 fi
 
-NODE_MAJOR="$(node -p 'process.versions.node.split(".")[0]' 2>/dev/null)"
-if [ -z "$NODE_MAJOR" ] || [ "$NODE_MAJOR" -lt 22 ] 2>/dev/null; then
+# 22.13 is the first Node with the built-in database (node:sqlite) the app uses.
+if ! node -e 'const [a, b] = process.versions.node.split(".").map(Number); process.exit(a > 22 || (a === 22 && b >= 13) ? 0 : 1)' 2>/dev/null; then
   need_node "too old (you have $(node -v 2>/dev/null))"
 fi
 

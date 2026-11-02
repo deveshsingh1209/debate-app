@@ -1,9 +1,8 @@
 # ADVANCED, OPTIONAL. The normal way to run this app is `npm install && npm start`
 # on your own machine. See docs/DOCKER.md before using this.
-FROM node:22-bookworm-slim AS build
+# Node 24 LTS: SQLite is built into Node, so nothing is compiled and no build tools are needed.
+FROM node:24-bookworm-slim AS build
 WORKDIR /app
-RUN apt-get update && apt-get install -y --no-install-recommends python3 make g++ \
-    && rm -rf /var/lib/apt/lists/*
 COPY package.json package-lock.json ./
 COPY server/package.json server/
 COPY web/package.json web/
@@ -11,7 +10,7 @@ RUN npm ci
 COPY . .
 RUN npm run build && npm prune --omit=dev
 
-FROM node:22-bookworm-slim
+FROM node:24-bookworm-slim
 ENV NODE_ENV=production
 WORKDIR /app
 # The Claude provider needs the Claude Code CLI inside the container.

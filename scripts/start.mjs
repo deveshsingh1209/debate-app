@@ -37,11 +37,12 @@ if (fs.existsSync('.env')) {
   }
 }
 
-const major = Number(process.versions.node.split('.')[0]);
-if (major < 22) {
+// 22.13 is the first Node with the built-in database (node:sqlite) the app uses. Same number as server/src/sqlite.ts.
+const [major, minor] = process.versions.node.split('.').map(Number);
+if (major < 22 || (major === 22 && minor < 13)) {
   die(
-    `This app needs Node.js 22 or newer; you have ${process.versions.node}.\n` +
-      `Install the current "LTS" version from https://nodejs.org, then run this again.\n` +
+    `This app needs Node.js 22.13 or newer; you have ${process.versions.node}.\n` +
+      `Install the current "LTS" version from https://nodejs.org (if you already have Node.js, the installer updates it), then run this again.\n` +
       `Step-by-step help: README.md, section "Node.js is missing or too old".`
   );
 }

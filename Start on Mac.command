@@ -21,12 +21,13 @@ echo "--------------"
 
 need_node() {
   echo
-  echo "The app needs a free program called Node.js (version 22 or newer), and it is $1."
+  echo "The app needs a free program called Node.js (version 22.13 or newer), and it is $1."
   echo
   echo "How to get it (about 2 minutes):"
   echo "  1. A web page will open: nodejs.org"
   echo "  2. Click the big green button that says 'LTS' (it downloads an installer)."
   echo "  3. Open the downloaded file and click Continue / Install until it finishes."
+  echo "     Already have an older Node.js? Do the same: the installer updates it in place."
   echo "  4. Come back and double-click 'Start on Mac.command' again."
   echo
   if [ -t 0 ]; then
@@ -42,8 +43,8 @@ if ! command -v node >/dev/null 2>&1; then
   need_node "not installed on this Mac"
 fi
 
-NODE_MAJOR="$(node -p 'process.versions.node.split(".")[0]' 2>/dev/null)"
-if [ -z "$NODE_MAJOR" ] || [ "$NODE_MAJOR" -lt 22 ] 2>/dev/null; then
+# 22.13 is the first Node with the built-in database (node:sqlite) the app uses.
+if ! node -e 'const [a, b] = process.versions.node.split(".").map(Number); process.exit(a > 22 || (a === 22 && b >= 13) ? 0 : 1)' 2>/dev/null; then
   need_node "too old (you have $(node -v 2>/dev/null))"
 fi
 

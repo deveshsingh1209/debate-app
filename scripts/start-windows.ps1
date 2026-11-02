@@ -9,12 +9,13 @@ Write-Host '--------------'
 
 function Show-NodeHelp([string] $why) {
   Write-Host ''
-  Write-Host "The app needs a free program called Node.js (version 22 or newer), and it is $why."
+  Write-Host "The app needs a free program called Node.js (version 22.13 or newer), and it is $why."
   Write-Host ''
   Write-Host 'How to get it (about 2 minutes):'
   Write-Host '  1. A web page will open: nodejs.org'
   Write-Host "  2. Click the big green button that says 'LTS'. It downloads an installer."
   Write-Host '  3. Open the downloaded file and click Next / Install until it finishes. Keep the default choices.'
+  Write-Host '     Already have an older Node.js? Do the same: the installer updates it in place.'
   Write-Host "  4. Close this window, then double-click 'Start on Windows.bat' again."
   Write-Host ''
   $answer = Read-Host 'Open nodejs.org for you now? (y/n)'
@@ -28,10 +29,12 @@ if (Test-Path (Join-Path $nodeDir 'node.exe')) { $env:Path = "$nodeDir;$env:Path
 $node = Get-Command node -ErrorAction SilentlyContinue
 if (-not $node) { Show-NodeHelp 'not installed on this PC'; exit 1 }
 
+# 22.13 is the first Node with the built-in database (node:sqlite) the app uses.
 $version = (& node -p 'process.versions.node' 2>$null)
-$major = 0
-if ($version) { [void][int]::TryParse($version.Split('.')[0], [ref]$major) }
-if ($major -lt 22) { Show-NodeHelp "too old (you have $version)"; exit 1 }
+$parsed = $null
+if (-not $version -or -not [version]::TryParse($version, [ref]$parsed) -or $parsed -lt [version]'22.13.0') {
+  Show-NodeHelp "too old (you have $version)"; exit 1
+}
 
 & node scripts/start.mjs @Rest
 $code = $LASTEXITCODE
