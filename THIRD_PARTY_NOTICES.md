@@ -59,7 +59,6 @@ Self-hosted through the Fontsource packages; no font is fetched from the interne
 | atomic-sleep | 1.0.0 | MIT | https://github.com/davidmarkclements/atomic-sleep |
 | avvio | 9.3.0 | MIT | https://github.com/fastify/avvio |
 | balanced-match | 4.0.4 | MIT | git://github.com/juliangruber/balanced-match |
-| better-sqlite3 | 13.0.3 | MIT | git://github.com/WiseLibs/better-sqlite3 |
 | brace-expansion | 5.0.12 | MIT | https://github.com/juliangruber/brace-expansion |
 | content-disposition | 3.0.0 | MIT | jshttp/content-disposition |
 | cookie | 2.0.1 | MIT | jshttp/cookie |
@@ -92,7 +91,6 @@ Self-hosted through the Fontsource packages; no font is fetched from the interne
 | minipass | 7.1.3 | BlueOak-1.0.0 | https://github.com/isaacs/minipass |
 | motion-dom | 12.42.2 | MIT | https://github.com/motiondivision/motion |
 | motion-utils | 12.39.0 | MIT | https://github.com/motiondivision/motion |
-| node-addon-api | 8.9.2 | MIT | git://github.com/nodejs/node-addon-api |
 | on-exit-leak-free | 2.1.2 | MIT | https://github.com/mcollina/on-exit-or-gc |
 | path-scurry | 2.0.2 | BlueOak-1.0.0 | https://github.com/isaacs/path-scurry |
 | pino | 10.3.1 | MIT | https://github.com/pinojs/pino |
@@ -1492,32 +1490,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-### MIT: better-sqlite3@13.0.3
-
-```text
-The MIT License (MIT)
-
-Copyright (c) 2017 Joshua Wise
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
 ### MIT: brace-expansion@5.0.12
 
 ```text
@@ -2323,20 +2295,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```
-
-### MIT: node-addon-api@8.9.2
-
-```text
-The MIT License (MIT)
-
-Copyright (c) 2017 [Node.js API collaborators](https://github.com/nodejs/node-addon-api#collaborators)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ### MIT: on-exit-leak-free@2.1.2, thread-stream@4.2.0

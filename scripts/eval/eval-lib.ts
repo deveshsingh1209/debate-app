@@ -98,8 +98,8 @@ export async function load(ref: string, dataDir = process.env.DATA_DIR ?? path.r
   if (!/^[A-Za-z0-9_-]{1,80}$/.test(ref)) throw new Error(`"${ref}" is not a file, and is not a valid debate id.`);
   const dbPath = path.join(dataDir, 'debate.db');
   if (fs.existsSync(dbPath)) {
-    const { default: Database } = await import('better-sqlite3');
-    const db = new Database(dbPath, { readonly: true, fileMustExist: true });
+    const { openDb } = await import('../../server/src/sqlite.ts');
+    const db = openDb(dbPath, { readOnly: true });
     try {
       const row = db.prepare('SELECT id, title, topic, meta FROM debates WHERE id = ?').get(ref) as { id: string; title: string; topic: string; meta: string } | undefined;
       if (row) {

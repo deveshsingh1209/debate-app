@@ -26,8 +26,8 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import Database from 'better-sqlite3';
 import { providerOfConfig } from '../../shared/models.ts';
+import { openDb, transaction } from '../src/sqlite.ts';
 
 const src = process.argv[2];
 if (!src) {
@@ -70,7 +70,7 @@ const srcDbFiles = ['', '-wal', '-shm'].map((s) => srcDb + s);
 const before = fingerprint(srcDbFiles);
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'debate-import-'));
 for (const f of srcDbFiles) if (fs.existsSync(f)) fs.copyFileSync(f, path.join(tmp, path.basename(f)));
-const old = new Database(path.join(tmp, 'debate.db'));
+const old = openDb(path.join(tmp, 'debate.db'));
 
 // ---- debates and events ----
 
@@ -87,7 +87,7 @@ const skipped: string[] = [];
 const statusChanges: string[] = [];
 let events = 0;
 
-const importOne = dest.transaction((r: any) => {
+const importOne = transaction(dest, (r: any) => {
   const config = JSON.parse(r.config);
   config.provider = providerOfConfig(config);
 

@@ -660,8 +660,8 @@ export function fromMarkdown(id: string, md: string): DebateInput {
 }
 
 async function fromDb(dbPath: string, only: string[]): Promise<DebateInput[]> {
-  const { default: Database } = await import('better-sqlite3');
-  const db = new Database(dbPath, { readonly: true, fileMustExist: true });
+  const { openDb } = await import('../server/src/sqlite.ts');
+  const db = openDb(dbPath, { readOnly: true });
   try {
     const rows = db.prepare('SELECT id, title FROM debates ORDER BY created_at').all() as { id: string; title: string }[];
     const pick = only.length ? rows.filter((r) => only.includes(r.id)) : rows;

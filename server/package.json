@@ -6,9 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "esbuild src/index.ts --bundle --platform=node --format=cjs --target=node20 --outfile=dist/index.cjs --external:better-sqlite3 --external:@anthropic-ai/claude-agent-sdk",
+    "build": "esbuild src/index.ts --bundle --platform=node --format=cjs --target=node22 --outfile=dist/index.cjs --external:@anthropic-ai/claude-agent-sdk",
     "typecheck": "tsc --noEmit",
-    "qa": "tsx src/report/qa-run.ts && tsx src/agents/prompts.selftest.ts && tsx src/agents/openai.selftest.ts && tsx src/agents/codex.selftest.ts && tsx src/engine/director.selftest.ts && tsx src/engine/floor.selftest.ts && tsx src/engine/mock-v2.selftest.ts && tsx src/engine/trailer.selftest.ts && tsx src/engine/lint.selftest.ts && tsx src/engine/minds.selftest.ts && tsx src/research/contract.selftest.ts && tsx src/research/cost.selftest.ts && tsx src/realism/selftest.ts && tsx src/budget.selftest.ts && tsx src/notify/notify.selftest.ts && tsx src/engine/runner.selftest.ts && tsx src/engine/flow.selftest.ts && tsx src/engine/mock-live.selftest.ts && tsx src/friendly.selftest.ts && tsx src/doors/doors.selftest.ts && tsx ../web/src/lib/debate-state.selftest.ts && tsx ../web/src/lib/attention-view.selftest.ts && tsx ../web/src/lib/door-view.selftest.ts && tsx ../scripts/transcript-metrics.ts --self-test && tsx ../scripts/doctor.selftest.ts && tsx ../scripts/eval/eval.selftest.ts && tsx ../scripts/calibrate-human.selftest.ts",
+    "qa": "tsx src/sqlite.selftest.ts && tsx src/report/qa-run.ts &&tsx src/agents/prompts.selftest.ts && tsx src/agents/openai.selftest.ts && tsx src/agents/codex.selftest.ts && tsx src/engine/director.selftest.ts && tsx src/engine/floor.selftest.ts && tsx src/engine/mock-v2.selftest.ts && tsx src/engine/trailer.selftest.ts && tsx src/engine/lint.selftest.ts && tsx src/engine/minds.selftest.ts && tsx src/research/contract.selftest.ts && tsx src/research/cost.selftest.ts && tsx src/realism/selftest.ts && tsx src/budget.selftest.ts && tsx src/notify/notify.selftest.ts && tsx src/engine/runner.selftest.ts && tsx src/engine/flow.selftest.ts && tsx src/engine/mock-live.selftest.ts && tsx src/friendly.selftest.ts && tsx src/doors/doors.selftest.ts && tsx ../web/src/lib/debate-state.selftest.ts && tsx ../web/src/lib/attention-view.selftest.ts && tsx ../web/src/lib/door-view.selftest.ts && tsx ../scripts/transcript-metrics.ts --self-test && tsx ../scripts/doctor.selftest.ts && tsx ../scripts/eval/eval.selftest.ts && tsx ../scripts/calibrate-human.selftest.ts",
     "qa:openai": "tsx src/agents/openai.selftest.ts",
     "qa:codex": "tsx src/agents/codex.selftest.ts"
   },
@@ -21,13 +21,11 @@
     "@fontsource/jetbrains-mono": "^5.3.0",
     "@fontsource/rajdhani": "^5.3.0",
     "@openai/codex-sdk": "^0.164.0",
-    "better-sqlite3": "^13.0.3",
     "fastify": "^5.2.0",
     "fflate": "^0.8.3",
     "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@types/better-sqlite3": "^7.6.12",
     "@types/node": "^26.6.5",
     "esbuild": "^0.28.2",
     "tsx": "^4.23.15",

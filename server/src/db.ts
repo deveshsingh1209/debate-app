@@ -1,4 +1,3 @@
-import Database from 'better-sqlite3';
 import fs from 'node:fs';
 import path from 'node:path';
 import { CFG } from './config.ts';
@@ -9,10 +8,11 @@ import type { DiversityFlag, Dossier, FloorState } from '../../shared/types.ts';
 import type { MarkedStakes } from './realism/stakes.ts';
 import type { LedgerState } from './realism/ledger.ts';
 import { attentionOf } from '../../shared/attention.ts';
+import { openDb, transaction } from './sqlite.ts';
 
-const db = new Database(path.join(CFG.dataDir, 'debate.db'));
-db.pragma('journal_mode = WAL');
-db.pragma('synchronous = NORMAL');
+const db = openDb(path.join(CFG.dataDir, 'debate.db'));
+db.exec('PRAGMA journal_mode = WAL');
+db.exec('PRAGMA synchronous = NORMAL');
 
 db.exec(`
 CREATE TABLE IF NOT EXISTS debates (
@@ -436,7 +436,7 @@ const nextSeqStmt = db.prepare(`SELECT COALESCE(MAX(seq), 0) + 1 AS s FROM event
 
 export const Events = {
   /** Appends an event, assigning seq + ts. Returns the completed event. */
-  append: db.transaction(<T extends Omit<DebateEvent, 'seq' | 'ts'>>(debateId: string, ev: T): DebateEvent => {
+  append: transaction(db, <T extends Omit<DebateEvent, 'seq' | 'ts'>>(debateId: string, ev: T): DebateEvent => {
     const seq = (nextSeqStmt.get(debateId) as any).s as number;
     const full = { ...ev, seq, ts: Date.now() } as unknown as DebateEvent;
     insertEvent.run(debateId, seq, full.ts, full.type, JSON.stringify(full));

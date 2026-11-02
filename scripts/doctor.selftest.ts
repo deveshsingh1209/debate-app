@@ -4,7 +4,7 @@
  *   npx tsx scripts/doctor.selftest.ts
  */
 import assert from 'node:assert/strict';
-import { runChecks, render, summarize, codexAuthPath, DOOR_CHECKS, type DoctorEnv, type CmdResult } from './doctor.ts';
+import { runChecks, render, summarize, codexAuthPath, nodeAtLeast, realEnv, DOOR_CHECKS, type DoctorEnv, type CmdResult } from './doctor.ts';
 
 const KEY = 'sk-test-SECRET-1234567890';
 const AKEY = 'sk-ant-api03-SECRET-abcdefghijklmnop';
@@ -17,7 +17,7 @@ const claudeIn: Record<string, CmdResult> = {
 function fake(over: Partial<DoctorEnv> & { cmds?: Record<string, CmdResult> } = {}): DoctorEnv {
   const cmds = over.cmds ?? {};
   return {
-    nodeVersion: '22.11.0',
+    nodeVersion: '22.13.0',
     env: {},
     mock: false,
     port: 8794,
@@ -60,14 +60,19 @@ const by = (cs: Awaited<ReturnType<typeof runChecks>>, name: string) => {
   assert.match(render(cs), /npm run demo/);
 }
 
-// 2. Old Node and new Node.
+// 2. Old Node and new Node. 22.13.0 is the first with node:sqlite unflagged.
 {
   const old = await runChecks(fake({ nodeVersion: '20.1.0' }));
   assert.equal(by(old, 'Node.js').level, 'FAIL');
-  assert.match(by(old, 'Node.js').fix!, /22/);
+  assert.match(by(old, 'Node.js').detail, /22\.13\.0/);
+  assert.match(by(old, 'Node.js').fix!, /nodejs\.org/);
   assert.ok(!summarize(old).canRunDemo);
+  assert.equal(by(await runChecks(fake({ nodeVersion: '22.12.0' })), 'Node.js').level, 'FAIL');
+  assert.equal(by(await runChecks(fake({ nodeVersion: 'v22.13.0' })), 'Node.js').level, 'PASS');
+  assert.equal(by(await runChecks(fake({ nodeVersion: '23.0.0' })), 'Node.js').level, 'PASS');
   const newer = await runChecks(fake({ nodeVersion: '26.12.1' }));
   assert.equal(by(newer, 'Node.js').level, 'PASS');
+  assert.ok(nodeAtLeast('22.13.1', '22.13.0') && nodeAtLeast('24.0.0', '22.13.0') && !nodeAtLeast('22.9.9', '22.13.0') && !nodeAtLeast('garbage', '22.13.0'));
 }
 
 // 3. Claude installed and signed in. The account e-mail in the CLI's output never reaches the report.
@@ -169,7 +174,8 @@ for (const st of [
   assert.equal(by(cs, 'Data folder').level, 'FAIL');
   assert.match(by(cs, 'Data folder').fix!, /DATA_DIR/);
   assert.equal(by(cs, 'SQLite').level, 'FAIL');
-  assert.match(by(cs, 'SQLite').fix!, /npm rebuild better-sqlite3/);
+  assert.match(by(cs, 'SQLite').fix!, /nodejs\.org/);
+  assert.doesNotMatch(by(cs, 'SQLite').fix!, /rebuild|build-essential|node-gyp/);
   const s = summarize(cs);
   assert.equal(s.fail, 3);
   assert.ok(!s.canRunDemo);
@@ -184,5 +190,8 @@ for (const st of [
   const cs = await runChecks(fake({ nodeVersion: '18.0.0', portFree: async () => false }));
   for (const c of cs) if (c.level !== 'PASS') assert.ok(c.fix && c.fix.length > 10, `${c.name} has no fix`);
 }
+
+// 12. The real SQLite check runs on this Node: built in, nothing compiled.
+realEnv().checkSqlite();
 
 console.log('doctor selftest: ok');

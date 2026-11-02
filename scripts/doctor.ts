@@ -17,6 +17,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { probeDoors, type CmdResult } from '../server/src/doors/probe.ts';
+import { MIN_NODE, openDb } from '../server/src/sqlite.ts';
 
 export type { CmdResult };
 export type Level = 'PASS' | 'WARN' | 'FAIL';
@@ -49,7 +50,13 @@ export interface DoctorEnv {
   platform?: string;
 }
 
-const MIN_NODE = 22;
+/** True when version `v` (with or without a leading v) is `min` or newer. */
+export function nodeAtLeast(v: string, min: string): boolean {
+  const a = v.replace(/^v/, '').split('.').map(Number);
+  const b = min.split('.').map(Number);
+  for (let i = 0; i < 3; i++) if (a[i] !== b[i]) return (a[i] ?? 0) > b[i];
+  return true;
+}
 
 /** The check names of the four doors, in the order the app offers them. */
 export const DOOR_CHECKS = ['Claude: sign in', 'Claude: API key', 'ChatGPT: Codex sign-in', 'OpenAI: API key'];
@@ -64,12 +71,12 @@ export async function runChecks(d: DoctorEnv): Promise<Check[]> {
 
   // Node
   const major = Number(d.nodeVersion.replace(/^v/, '').split('.')[0]);
-  if (!Number.isFinite(major) || major < MIN_NODE) {
+  if (!nodeAtLeast(d.nodeVersion, MIN_NODE)) {
     add({
       name: 'Node.js',
       level: 'FAIL',
-      detail: `Node ${d.nodeVersion} is too old; this app needs ${MIN_NODE} or newer.`,
-      fix: `Install Node ${MIN_NODE}+ from https://nodejs.org (or \`nvm install ${MIN_NODE}\`), then run \`npm install\` again.`,
+      detail: `Node ${d.nodeVersion} is too old; this app needs ${MIN_NODE} or newer (its built-in database arrived in that version).`,
+      fix: `Install the current "LTS" version from https://nodejs.org (click the big green LTS button and run the installer; or \`nvm install --lts\`), close this window, then run the start file or \`npm start\` again.`,
     });
   } else if (major > 24) {
     add({
@@ -149,13 +156,13 @@ export async function runChecks(d: DoctorEnv): Promise<Check[]> {
   // SQLite
   try {
     d.checkSqlite();
-    add({ name: 'SQLite', level: 'PASS', detail: 'better-sqlite3 loads and works.' });
+    add({ name: 'SQLite', level: 'PASS', detail: "Node's built-in SQLite works." });
   } catch (e) {
     add({
       name: 'SQLite',
       level: 'FAIL',
-      detail: `The SQLite module would not load: ${errText(e)}`,
-      fix: 'Run `npm rebuild better-sqlite3`. If that fails, delete node_modules and run `npm install` again (on Linux you may need build tools: `apt install build-essential python3`).',
+      detail: `Node's built-in SQLite would not open a database: ${errText(e)}`,
+      fix: `Install the current "LTS" version of Node.js from https://nodejs.org (${MIN_NODE} or newer), then start the app again. Nothing needs compiling.`,
     });
   }
 
@@ -226,9 +233,7 @@ export function realEnv(): DoctorEnv {
       fs.rmSync(probe);
     },
     checkSqlite() {
-      const req = createRequire(import.meta.url);
-      const Database = req('better-sqlite3');
-      const db = new Database(':memory:');
+      const db = openDb(':memory:');
       db.exec('create table t(x); insert into t values (1);');
       const row = db.prepare('select x from t').get() as { x: number };
       db.close();
@@ -243,8 +248,6 @@ export function realEnv(): DoctorEnv {
     },
   };
 }
-
-import { createRequire } from 'node:module';
 
 /** Minimal .env read so the doctor sees the same settings the server will. Real env wins. */
 function loadDotEnv() {
