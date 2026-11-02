@@ -1,0 +1,237 @@
+/* ============================================================
+   DESIGN TOKENS — the boardroom at night
+   ------------------------------------------------------------
+   One graphite ground, one ink, one accent: the chair's brass
+   lamp. Colour lives on people (each seat's own hue), on state
+   (heat, a ruling's grade) and on the one selection line. Chrome
+   stays grey. See docs/PHASE3-UI-PLAN.md for the reasoning.
+
+   Every value a component uses comes from here. The two older
+   sheets (index.css, theme.css) keep their variable names, which
+   are remapped onto these roles at the bottom of this file.
+
+   Contrast is checked by src/design/design.selftest.ts (npm run
+   qa): every text role >= 4.5:1 on every surface it sits on, in
+   both themes. Change a colour here, run qa.
+   ============================================================ */
+
+/* Fonts: self-hosted (OFL), bundled by Vite. No CDN, no request
+   leaves the machine. Two faces: Plex Sans for everything, Source
+   Serif 4 for the minutes of the meeting (motions and rulings). */
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/400-italic.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource-variable/source-serif-4/wght.css';
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* surfaces, darkest to lightest. Containers sit darker than the
+     ground (the data-terminal move): elevation by lightness alone. */
+  --sunken: #08090a;
+  --surface: #0c0d0f;
+  --ground: #121316;
+  --raised: #1b1d21;
+  --active: #24272c;
+
+  /* lines */
+  --rule: #1d1f23;
+  --border: #282b31;
+  --control: #484d56;
+
+  /* ink */
+  --text: #ecebe7;
+  --muted: #b5b7bb;
+  --faint: #8f9298;
+
+  /* the one accent */
+  --accent: #d4a94f;
+  --accent-ink: #19140a;           /* text on an accent fill */
+  --accent-soft: rgba(212, 169, 79, 0.12);
+  --accent-line: #d4a94f;          /* the selection line */
+
+  /* status */
+  --positive: #55c38f;
+  --negative: #f07466;
+  --warning: #e3a940;
+  --info: #7fb1d8;
+  --pill-positive-bg: #12251b;
+  --pill-negative-bg: #2d1715;
+  --pill-warning-bg: #2a2010;
+
+  /* heat: a seat's temper, the room's tension */
+  --heat-cool: #6f8ba8;
+  --heat-warm: #dc9a3f;
+  --heat-hot: #f0614f;
+
+  /* seat colours are data from the server (persona.color). On dark
+     they are used as given; on light they are deepened (see below). */
+  --seat-mix: #ffffff;
+  --seat-mix-pct: 0%;
+
+  --shadow-float: 0 8px 28px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+  --scrim: rgba(4, 5, 6, 0.72);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --sunken: #ebeae6;
+  --surface: #ffffff;
+  --ground: #f5f5f2;
+  --raised: #ffffff;
+  --active: #e7e6e2;
+
+  --rule: #ebeae6;
+  --border: #dddcd7;
+  --control: #a9a8a2;
+
+  --text: #18191b;
+  --muted: #4b4e54;
+  --faint: #606369;
+
+  --accent: #8a6310;
+  --accent-ink: #19140a;
+  --accent-soft: rgba(176, 128, 26, 0.12);
+  --accent-line: #a87a18;
+
+  --positive: #1e774b;
+  --negative: #b4342a;
+  --warning: #87580a;
+  --info: #2a6896;
+  --pill-positive-bg: #e2f4e9;
+  --pill-negative-bg: #fbe9e6;
+  --pill-warning-bg: #fbf1dd;
+
+  --heat-cool: #557089;
+  --heat-warm: #a8650f;
+  --heat-hot: #c5372a;
+
+  --seat-mix: #000000;
+  --seat-mix-pct: 38%;
+
+  --shadow-float: 0 10px 30px rgba(20, 20, 20, 0.14), 0 1px 3px rgba(20, 20, 20, 0.08);
+  --scrim: rgba(245, 245, 242, 0.8);
+}
+
+/* The brass fill for the one primary action. Same in both themes:
+   dark ink on brass reads at about 8:1 either way. */
+:root {
+  --primary-fill: #d4a94f;
+  --primary-fill-hover: #e0b862;
+  --primary-ink: #19140a;
+}
+:root[data-theme='light'] {
+  --primary-fill: #c99a3a;
+  --primary-fill-hover: #d6a849;
+}
+
+:root {
+  /* ---------- type ---------- */
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-code: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --fs-11: 11px;   /* never for running words: tags on a dot only */
+  --fs-12: 12px;   /* labels, meta */
+  --fs-13: 13px;   /* rails, secondary text */
+  --fs-14: 14px;   /* controls, body in cards */
+  --fs-16: 16px;   /* the transcript */
+  --fs-20: 20px;   /* motion title */
+  --fs-26: 26px;   /* page titles */
+
+  --lh-tight: 1.25;
+  --lh-body: 1.6;
+
+  /* ---------- space (4px base) ---------- */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+
+  /* ---------- radius ---------- */
+  --r-1: 4px;
+  --r-2: 6px;
+  --r-round: 999px;
+
+  /* ---------- motion ---------- */
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.6, 0, 0.3, 1);
+  --rise: 6px;     /* how far an arriving item travels */
+
+  --tap: 40px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --rise: 0px; }
+}
+
+/* A seat's colour as ink: as given on dark, deepened on light so it
+   still reads as text on white. Components put the raw hue in an
+   inline --pc or --sc; the derived ink must be computed on that same
+   element (a var() resolves where it is declared), hence the
+   attribute selectors rather than one :root rule. */
+[style*='--pc'] { --pc-ink: color-mix(in oklab, var(--pc) calc(100% - var(--seat-mix-pct)), var(--seat-mix)); }
+[style*='--sc'] { --sc-ink: color-mix(in oklab, var(--sc) calc(100% - var(--seat-mix-pct)), var(--seat-mix)); }
+
+/* ============================================================
+   LEGACY NAMES — the v1 (cyan) and naval (brass) sheets' own
+   variables, remapped so every older rule inherits the system.
+   Doubled :root raises specificity over theme.css's :root:root.
+   ============================================================ */
+:root:root:root {
+  /* v1 */
+  --bg0: var(--ground);
+  --bg1: var(--surface);
+  --bg2: var(--raised);
+  --bg3: var(--active);
+  --line: var(--border);
+  --line2: var(--control);
+  --txt: var(--text);
+  --dim: var(--muted);
+  --cyan: var(--accent);
+  --cyan-dim: var(--accent);
+  --cyan-soft: var(--accent-soft);
+  --amber: var(--warning);
+  --amber-soft: var(--pill-warning-bg);
+  --red: var(--negative);
+  --red-soft: var(--pill-negative-bg);
+  --green: var(--positive);
+  --marcus: var(--accent);
+  --font-hud: var(--font-sans);
+  --font-display: var(--font-serif);
+  --font-prose: var(--font-sans);
+  --font-ui: var(--font-sans);
+  --font-mono: var(--font-sans);
+
+  /* naval */
+  --sea-0: var(--ground);
+  --sea-1: var(--surface);
+  --sea-2: var(--raised);
+  --sea-3: var(--active);
+  --sea-4: var(--control);
+  --brass: var(--accent);
+  --brass-hi: var(--accent);
+  --brass-dim: var(--control);
+  --brass-soft: var(--accent-soft);
+  --bone: var(--text);
+  --bone-2: var(--muted);
+  --bone-3: var(--faint);
+  --bone-4: var(--faint);
+  --signal: var(--negative);
+  --signal-soft: var(--pill-negative-bg);
+  --verdigris: var(--positive);
+  --verdigris-soft: var(--pill-positive-bg);
+  /* theme.css calls its lines --rule / --rule-2; ours is --rule too, so
+     the naval sheet's --rule-2 maps to the border and --rule keeps ours. */
+  --rule-2: var(--border);
+  --shadow-lift: var(--shadow-float);
+}

@@ -1,0 +1,821 @@
+{
+  "status": "APPLIED in 2b-6 with reconciliations (overlap 3-20 for real talking-over, size-aware giniTurns and pingPongRate, chairWordShare 0.10-0.20, concessions on a broader list at half weight, discourse-marker openers excluded, fillerTurnShare and summaryEndingShare kept at their documented literature bands). REALISM_TARGETS in scripts/transcript-metrics.ts is the source of truth; every decision is in docs/ENGINE-REPORT.md. This file is kept as the corpus evidence.",
+  "date": "2026-10-26",
+  "generatedBy": "scripts/calibrate-human.ts (see docs/HUMAN-CALIBRATION.md for method and caveats)",
+  "method": {
+    "turns": "maximal runs of one speaker's dialogue acts in start-time order; backchannel acts excluded (AMI bck, ICSI b)",
+    "chair": "AMI Project Manager (role PM); ICSI none",
+    "overlapMinSec": 0.5,
+    "window": "40 expert turns (the like-for-like length for one debate motion); whole-meeting figures given as well",
+    "bounds": "null = open. Score arithmetic as realismIndex(): 1 inside, linear to 0 at `scale` outside."
+  },
+  "corpora": {
+    "ami": {
+      "release": "AMI Meeting Corpus, manual annotations 1.6.2 (139 meetings with dialogue acts)",
+      "licence": "CC BY 4.0",
+      "url": "https://groups.inf.ed.ac.uk/ami/corpus/"
+    },
+    "icsi": {
+      "release": "ICSI Meeting Corpus, NXT core annotations 1.0 (75 meetings)",
+      "licence": "CC BY 4.0",
+      "url": "https://groups.inf.ed.ac.uk/ami/icsi/"
+    }
+  },
+  "unchanged": [
+    "multiParagraphShare",
+    "addressesChairShare",
+    "emDashPer1k",
+    "tic.antithesis",
+    "tic.labelParenthetical",
+    "tic.closerToRight",
+    "tic.metaSpeech",
+    "tic.falsifierJargon"
+  ],
+  "bands": {
+    "wordsCv": {
+      "lo": 0.9,
+      "hi": 2.3,
+      "scale": 0.6,
+      "weight": 2,
+      "current": {
+        "lo": 0.8,
+        "hi": null,
+        "scale": 0.6
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0.86,
+          "q1": 1,
+          "median": 1.23,
+          "q3": 1.61,
+          "p90": 2.292,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 1.04,
+          "q1": 1.2,
+          "median": 1.42,
+          "q3": 1.71,
+          "p90": 2.067,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 1.26,
+          "q1": 1.49,
+          "median": 1.78,
+          "q3": 2.34,
+          "p90": 2.966,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 1.49,
+          "q1": 1.665,
+          "median": 1.86,
+          "q3": 2.05,
+          "p90": 2.2,
+          "n": 75
+        }
+      },
+      "confidence": "high",
+      "basis": "40-turn windows p10-p90: AMI 0.86-2.29, ICSI 1.04-2.07. Adds a ceiling: above ~2.3 the room is one-word reactions plus monologues."
+    },
+    "wordsP10": {
+      "lo": null,
+      "hi": 6,
+      "scale": 30,
+      "weight": 1,
+      "current": {
+        "lo": 0,
+        "hi": 12,
+        "scale": 100
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 1,
+          "q1": 1,
+          "median": 1,
+          "q3": 1,
+          "p90": 2,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 1,
+          "q1": 1,
+          "median": 1,
+          "q3": 1,
+          "p90": 2,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 1,
+          "q1": 1,
+          "median": 1,
+          "q3": 1,
+          "p90": 1,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 1,
+          "q1": 1,
+          "median": 1,
+          "q3": 1,
+          "p90": 1,
+          "n": 75
+        }
+      },
+      "confidence": "high",
+      "basis": "p10 is 1-2 words in every window of both corpora. 6 leaves room for the engine's 2-15 word reaction shape; scale tightened from 100 so a p10 of 60 no longer scores 0.5."
+    },
+    "wordsP90": {
+      "lo": 20,
+      "hi": 90,
+      "scale": 60,
+      "weight": 1,
+      "current": {
+        "lo": 120,
+        "hi": null,
+        "scale": 100
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 12,
+          "q1": 16,
+          "median": 23,
+          "q3": 34.5,
+          "p90": 54,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 17,
+          "q1": 23,
+          "median": 33,
+          "q3": 47,
+          "p90": 68.7,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 16.8,
+          "q1": 21,
+          "median": 29,
+          "q3": 38,
+          "p90": 52,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 28,
+          "q1": 32,
+          "median": 42,
+          "q3": 49,
+          "p90": 62.2,
+          "n": 75
+        }
+      },
+      "confidence": "medium",
+      "basis": "Windows p10-p90: AMI 12-54, ICSI 17-69. Ceiling raised above the human p90 to 90 for the expert-panel genre (set pieces); floor of 120 removed, it failed every human meeting."
+    },
+    "shortTurnShare": {
+      "lo": 0.65,
+      "hi": null,
+      "scale": 0.3,
+      "weight": 2,
+      "current": {
+        "lo": 0.3,
+        "hi": 0.5,
+        "scale": 0.3
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0.85,
+          "q1": 0.9,
+          "median": 0.98,
+          "q3": 1,
+          "p90": 1,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 0.8,
+          "q1": 0.88,
+          "median": 0.93,
+          "q3": 0.95,
+          "p90": 0.994,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 0.86,
+          "q1": 0.9,
+          "median": 0.94,
+          "q3": 0.97,
+          "p90": 0.98,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 0.85,
+          "q1": 0.87,
+          "median": 0.89,
+          "q3": 0.92,
+          "p90": 0.94,
+          "n": 75
+        }
+      },
+      "confidence": "medium",
+      "basis": "Windows p10: AMI 0.85, ICSI 0.80; medians 0.93-0.98. The floor is set below the human p10 on purpose (expert panels run longer turns than design meetings); the old ceiling of 0.5 failed every human window."
+    },
+    "memoTurnShare": {
+      "lo": null,
+      "hi": 0.08,
+      "scale": 0.3,
+      "weight": 2,
+      "current": {
+        "lo": 0,
+        "hi": 0.15,
+        "scale": 0.5
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0,
+          "p90": 0.03,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0.03,
+          "p90": 0.044,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0.01,
+          "q3": 0.02,
+          "p90": 0.03,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0.01,
+          "q3": 0.02,
+          "p90": 0.03,
+          "n": 75
+        }
+      },
+      "confidence": "medium",
+      "basis": "Windows p90: AMI 0.03, ICSI 0.044. 0.08 allows roughly twice the human rate for set pieces."
+    },
+    "interruptionRate": {
+      "lo": 5,
+      "hi": 20,
+      "scale": 10,
+      "weight": 2,
+      "current": {
+        "lo": 8,
+        "hi": 20,
+        "scale": 10
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 5,
+          "q1": 10,
+          "median": 15,
+          "q3": 20,
+          "p90": 25,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 5,
+          "q1": 7.5,
+          "median": 10,
+          "q3": 15,
+          "p90": 20,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 7.46,
+          "q1": 9.9,
+          "median": 13.5,
+          "q3": 16.3,
+          "p90": 18.94,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 8.2,
+          "q1": 9.4,
+          "median": 10.6,
+          "q3": 12.6,
+          "p90": 14.26,
+          "n": 75
+        }
+      },
+      "confidence": "medium",
+      "basis": "Windows p10-p90: AMI 5-25, ICSI 5-20. The detector matches ICSI hand-coded interrupted acts in rate (11.2 vs 10.9 per 100 turns) at precision/recall ~0.5."
+    },
+    "overlapRate": {
+      "lo": 8,
+      "hi": 35,
+      "scale": 10,
+      "weight": 2,
+      "current": {
+        "lo": 5,
+        "hi": 12,
+        "scale": 6
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 22.5,
+          "q1": 27.5,
+          "median": 35,
+          "q3": 42.5,
+          "p90": 50,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 7.5,
+          "q1": 12.5,
+          "median": 17.5,
+          "q3": 25,
+          "p90": 32.5,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 25.7,
+          "q1": 29.3,
+          "median": 33.5,
+          "q3": 39.3,
+          "p90": 45.88,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 9.18,
+          "q1": 12.2,
+          "median": 16.3,
+          "q3": 21.3,
+          "p90": 27.12,
+          "n": 75
+        }
+      },
+      "confidence": "medium",
+      "basis": "Turns starting >= 0.5 s inside another speaker's act, windows p10-p90: AMI 22.5-50, ICSI 7.5-32.5. Old ceiling 12 failed nearly every human window. Sensitive to the threshold: at >= 1 s, ICSI is 0-12.5."
+    },
+    "pingPongRate": {
+      "lo": 0.25,
+      "hi": 0.6,
+      "scale": 0.15,
+      "weight": 2,
+      "current": {
+        "lo": 0.15,
+        "hi": 0.35,
+        "scale": 0.15
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0.26,
+          "q1": 0.32,
+          "median": 0.42,
+          "q3": 0.5,
+          "p90": 0.58,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 0.37,
+          "q1": 0.45,
+          "median": 0.55,
+          "q3": 0.68,
+          "p90": 0.79,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 0.28,
+          "q1": 0.35,
+          "median": 0.4,
+          "q3": 0.44,
+          "p90": 0.49,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 0.474,
+          "q1": 0.515,
+          "median": 0.61,
+          "q3": 0.715,
+          "p90": 0.77,
+          "n": 75
+        }
+      },
+      "confidence": "medium",
+      "basis": "Windows p10-p90: AMI 0.26-0.58 (3 non-chair speakers), ICSI 0.37-0.79 (4-6). Old ceiling 0.35 sat below the human median in both corpora."
+    },
+    "questionShare": {
+      "lo": 0.05,
+      "hi": 0.25,
+      "scale": 0.15,
+      "weight": 2,
+      "current": {
+        "lo": 0.25,
+        "hi": null,
+        "scale": 0.25
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0.03,
+          "q1": 0.08,
+          "median": 0.1,
+          "q3": 0.15,
+          "p90": 0.2,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 0.05,
+          "q1": 0.1,
+          "median": 0.15,
+          "q3": 0.2,
+          "p90": 0.25,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 0.07,
+          "q1": 0.09,
+          "median": 0.11,
+          "q3": 0.14,
+          "p90": 0.152,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 0.12,
+          "q1": 0.14,
+          "median": 0.17,
+          "q3": 0.2,
+          "p90": 0.22,
+          "n": 75
+        }
+      },
+      "confidence": "high",
+      "basis": "Windows p10-p90: AMI 0.03-0.20, ICSI 0.05-0.25. The '?' count agrees with the DA-coded question count (AMI elicit-*, ICSI q*) to within 0.01 at the median. Old floor 0.25 scored a median human window 0.4-0.6."
+    },
+    "concessionPer100": {
+      "lo": 0,
+      "hi": 5,
+      "scale": 10,
+      "weight": 1,
+      "current": {
+        "lo": 5,
+        "hi": 12,
+        "scale": 10
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0,
+          "p90": 0,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0,
+          "p90": 0,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0,
+          "p90": 0.2,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0.1,
+          "q3": 0.25,
+          "p90": 0.5,
+          "n": 75
+        }
+      },
+      "confidence": "low",
+      "basis": "The concession lexicon finds 0 per 100 at the human median and <= 0.5 at p90: people concede with \"yeah\" and \"true\", which the lexicon does not count. The data supports dropping the floor of 5, not a new floor."
+    },
+    "positionChangePer100": {
+      "lo": 0,
+      "hi": 2,
+      "scale": 5,
+      "weight": 1,
+      "current": {
+        "lo": 3,
+        "hi": 8,
+        "scale": 5
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0,
+          "p90": 0,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0,
+          "p90": 0,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0,
+          "p90": 0,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0,
+          "p90": 0,
+          "n": 75
+        }
+      },
+      "confidence": "medium",
+      "basis": "0 at p90 in both corpora (the strict lexicon). Agrees with docs/HUMAN-BASELINES.md (0-2)."
+    },
+    "fillerTurnShare": {
+      "lo": null,
+      "hi": 0.03,
+      "scale": 0.05,
+      "weight": 1,
+      "current": {
+        "lo": 0,
+        "hi": 0.01,
+        "scale": 0.05
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0,
+          "p90": 0.03,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0.03,
+          "p90": 0.03,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0.01,
+          "q3": 0.02,
+          "p90": 0.03,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 0,
+          "q1": 0.01,
+          "median": 0.01,
+          "q3": 0.01,
+          "p90": 0.02,
+          "n": 75
+        }
+      },
+      "confidence": "medium",
+      "basis": "Windows p90: 0.03 in both corpora. Old ceiling 0.01 failed the human p90."
+    },
+    "summaryEndingShare": {
+      "lo": null,
+      "hi": 0.05,
+      "scale": 0.1,
+      "weight": 1,
+      "current": {
+        "lo": 0,
+        "hi": 0.05,
+        "scale": 0.1
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0.03,
+          "p90": 0.03,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0.03,
+          "p90": 0.05,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0.01,
+          "q3": 0.02,
+          "p90": 0.03,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 0.01,
+          "q1": 0.01,
+          "median": 0.02,
+          "q3": 0.03,
+          "p90": 0.03,
+          "n": 75
+        }
+      },
+      "confidence": "medium",
+      "basis": "Windows p90: AMI 0.03, ICSI 0.05. Current band kept."
+    },
+    "openerRepeatShare": {
+      "lo": null,
+      "hi": 0.1,
+      "scale": 0.15,
+      "weight": 1,
+      "current": {
+        "lo": 0,
+        "hi": 0.05,
+        "scale": 0.1
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0.08,
+          "q3": 0.1,
+          "p90": 0.15,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0,
+          "q3": 0.08,
+          "p90": 0.13,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 0.048,
+          "q1": 0.08,
+          "median": 0.13,
+          "q3": 0.16,
+          "p90": 0.21,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 0.11,
+          "q1": 0.14,
+          "median": 0.15,
+          "q3": 0.185,
+          "p90": 0.21,
+          "n": 75
+        }
+      },
+      "confidence": "low",
+      "basis": "Windows median 0-0.08, p90 0.13-0.15 (\"yeah I think\", \"okay so\"). Length-dependent: whole meetings read 0.13-0.15 at the median. 0.10 still flags a house opener."
+    },
+    "recycled4gramShare": {
+      "lo": null,
+      "hi": 0.03,
+      "scale": 0.05,
+      "weight": 1,
+      "current": {
+        "lo": 0,
+        "hi": 0.03,
+        "scale": 0.05
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0.003,
+          "q3": 0.012,
+          "p90": 0.027,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 0,
+          "q1": 0,
+          "median": 0.004,
+          "q3": 0.013,
+          "p90": 0.031,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 0.004,
+          "q1": 0.01,
+          "median": 0.017,
+          "q3": 0.024,
+          "p90": 0.033,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 0.01,
+          "q1": 0.015,
+          "median": 0.019,
+          "q3": 0.025,
+          "p90": 0.03,
+          "n": 75
+        }
+      },
+      "confidence": "medium",
+      "basis": "Windows p90: AMI 0.027, ICSI 0.031. Current band kept."
+    },
+    "giniTurns": {
+      "lo": 0.08,
+      "hi": 0.42,
+      "scale": 0.2,
+      "weight": 1,
+      "current": {
+        "lo": 0.25,
+        "hi": 0.45,
+        "scale": 0.2
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0.05,
+          "q1": 0.1,
+          "median": 0.17,
+          "q3": 0.23,
+          "p90": 0.3,
+          "n": 799
+        },
+        "icsiW40": {
+          "p10": 0.15,
+          "q1": 0.23,
+          "median": 0.3,
+          "q3": 0.37,
+          "p90": 0.42,
+          "n": 1114
+        },
+        "amiMeeting": {
+          "p10": 0.04,
+          "q1": 0.07,
+          "median": 0.11,
+          "q3": 0.16,
+          "p90": 0.21,
+          "n": 139
+        },
+        "icsiMeeting": {
+          "p10": 0.196,
+          "q1": 0.26,
+          "median": 0.36,
+          "q3": 0.43,
+          "p90": 0.46,
+          "n": 75
+        }
+      },
+      "confidence": "medium",
+      "basis": "Windows p10-p90: AMI 0.05-0.30 (3 speakers), ICSI 0.15-0.42 (4-6). Gini grows with group size; a size-aware band would be better (open question)."
+    },
+    "chairWordShare": {
+      "lo": 0.1,
+      "hi": 0.3,
+      "scale": 0.15,
+      "weight": 1,
+      "current": {
+        "lo": 0.05,
+        "hi": 0.12,
+        "scale": 0.1
+      },
+      "observed": {
+        "amiW40": {
+          "p10": 0.11,
+          "q1": 0.18,
+          "median": 0.28,
+          "q3": 0.42,
+          "p90": 0.55,
+          "n": 789
+        },
+        "icsiW40": null,
+        "amiMeeting": {
+          "p10": 0.207,
+          "q1": 0.253,
+          "median": 0.33,
+          "q3": 0.44,
+          "p90": 0.543,
+          "n": 138
+        },
+        "icsiMeeting": null
+      },
+      "confidence": "low",
+      "basis": "AMI Project Manager, windows p10-p90 0.11-0.55, median 0.28. The PM also presents and runs the agenda, so the ceiling is set near the median, not the p90. ICSI marks no chair."
+    }
+  }
+}

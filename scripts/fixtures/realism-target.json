@@ -1,0 +1,35 @@
+{
+  "note": "Synthetic, hand-written, no private data. Shaped like the Phase 2 target bands: uneven turn lengths, questions, people answering each other, a cut-off with an overlapping cut-in, a caused concession, a quiet chair. Used by the metrics self-test to check that the realism index ranks it above realism-baseline.json and that the guards are computed.",
+  "events": [
+    { "type": "panel", "personas": [
+      { "id": "marcus", "name": "Marcus Hale" },
+      { "id": "ana", "name": "Ana Ruiz" },
+      { "id": "bo", "name": "Bo Chen" },
+      { "id": "cy", "name": "Cy Okafor" }
+    ] },
+    { "type": "motion_open", "motionId": "m1", "index": 1, "total": 1, "title": "Sunday opening", "motion": "The bakery should open on Sundays." },
+    { "type": "message", "id": "t1", "speaker": "marcus", "kind": "marcus", "text": "Sundays. Ana, you want it open. Why?" },
+    { "type": "message", "id": "t2", "speaker": "ana", "kind": "floor", "text": "Because the ovens sit cold for a whole day while the rent keeps running. A Sunday does not have to match Saturday. It has to cover one extra wage bill and the flour, and on this street I think it does that by eleven in the morning. I have run three shops and every one of them made the seventh day pay inside a month. The first cohort of regulars is already asking for it, and the people who ask for something tend to turn up when you give it to them" },
+    { "type": "message", "id": "t3", "speaker": "bo", "kind": "reaction", "text": "Inside a month on whose staff?", "overlap": { "with": "t2", "fromChar": 380 } },
+    { "type": "message", "id": "t4", "speaker": "ana", "kind": "floor", "shape": "reply", "text": "On mine. We hired for it." },
+    { "type": "message", "id": "t5", "speaker": "bo", "kind": "floor", "text": "Here we can't hire for it. Two of the four already work six days. Ask either of them to do a seventh and you are not adding a shift, you are writing a job advert." },
+    { "type": "message", "id": "t6", "speaker": "ana", "kind": "floor", "text": "Then the two who don't work six days take it. Problem solved?" },
+    { "type": "message", "id": "t7", "speaker": "bo", "kind": "floor", "text": "They're counter staff. Who bakes at five?" },
+    { "type": "message", "id": "t8", "speaker": "ana", "kind": "reaction", "text": "Hm." },
+    { "type": "pause", "ms": 3000, "reason": "unanswered" },
+    { "type": "message", "id": "t9", "speaker": "cy", "kind": "floor", "text": "Can I come in on the footfall? Sunday on streets like this runs at about sixty percent of Saturday, and almost all of it lands between ten and one. So nobody needs a full day. A ten-to-two counter would catch most of the trade without the long afternoon that kills the margin." },
+    { "type": "message", "id": "t10", "speaker": "bo", "kind": "floor", "text": "Sixty percent of which Saturday? Last summer's?" },
+    { "type": "message", "id": "t11", "speaker": "cy", "kind": "floor", "text": "An average over six comparable streets. Not this one." },
+    { "type": "message", "id": "t12", "speaker": "bo", "kind": "reaction", "text": "So we don't know." },
+    { "type": "message", "id": "t13", "speaker": "ana", "kind": "floor", "text": "We'd know in four weeks. And the five o'clock problem goes away if Saturday's late bake runs one more batch of the sourdough and the rye. They keep. Sunday sells those off the counter, nobody in the building before ten.", "cutOff": { "atChar": 205, "by": "bo" } },
+    { "type": "message", "id": "t14", "speaker": "bo", "kind": "reaction", "text": "Yesterday's bread at full price?", "overlap": { "with": "t13", "fromChar": 190 } },
+    { "type": "message", "id": "t15", "speaker": "ana", "kind": "floor", "shape": "reply", "text": "It's not yesterday's bread if it's the long-life lines. People buy rye on a Monday that was baked on Saturday. Why would Sunday be different?" },
+    { "type": "message", "id": "t16", "speaker": "bo", "kind": "floor", "text": "Fine. That I can't argue with. If nobody works a seventh day, I'm out of objections on staffing. I still want a stop date." },
+    { "type": "concession", "concession": { "motionId": "m1", "expert": "bo", "from": { "stance": -2, "confidence": "high" }, "to": { "stance": 0, "confidence": "medium" }, "kind": "conditional", "movedBy": { "kind": "argument", "who": "ana" }, "cost": "the staffing red line", "messageId": "t16" } },
+    { "type": "message", "id": "t17", "speaker": "cy", "kind": "floor", "text": "Week three. If the counter doesn't cover its own wage by then, we stop." },
+    { "type": "message", "id": "t18", "speaker": "ana", "kind": "reaction", "text": "Agreed. Week three." },
+    { "type": "round", "motionId": "m1", "round": 1, "freshArguments": 4, "rung": 3, "rungName": "stress" },
+    { "type": "message", "id": "t19", "speaker": "marcus", "kind": "marcus", "text": "Then that is the ruling. Bo, your stop date is in it." },
+    { "type": "decision", "decision": { "motionId": "m1", "motionTitle": "Sunday opening", "decision": "Run a four-week, counter-only, ten-to-two Sunday trial selling the Saturday overbake, stopping at week three if it does not cover its own wage.", "owner": "Founder", "rationale": "Nobody works a seventh day; the trial measures the footfall the room could only estimate.", "evidence": "observed", "dependsOn": [], "dissents": [{ "expert": "Bo Chen", "position": "The overbake may not sell at full price.", "reasoning": "No price data for day-old long-life lines on this street." }] } }
+  ]
+}

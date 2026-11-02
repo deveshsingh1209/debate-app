@@ -1,0 +1,1431 @@
+{
+ "note": "Drawn from the real Claude sign-in run d_R8dL2LGj (2026-10-28, autonomous, Quick): the founder brief, the research citation ids, the panel, every message that carried graded claims, every research message, and the rulings. Used by realism/evidence.selftest.ts and the eval kit.",
+ "id": "d_R8dL2LGj",
+ "topic": "Should a four-person neighbourhood bakery open on Sundays when two of its staff already work six days a week? Make assumptions explicit and identify the information needed before deciding.",
+ "clarifyAnswers": {},
+ "contextBrief": null,
+ "citations": [
+  "c_affe4efa",
+  "c_a81346ae",
+  "c_4610f6bf",
+  "c_c662cf2f",
+  "c_ea1cc387",
+  "c_946217bd",
+  "c_63c5f899",
+  "c_e18b5042",
+  "c_3ee9c7ca",
+  "c_b1638d1c",
+  "c_b68f650d",
+  "c_1125d5a4",
+  "c_279d1285",
+  "c_8e051f32",
+  "c_e4408167",
+  "c_98834dee",
+  "c_1c060e54",
+  "c_c70d0dea",
+  "c_b7408307",
+  "c_745b9871",
+  "c_b1ab34c7",
+  "c_2d0bba11",
+  "c_c189ea1a",
+  "c_9e6a9670"
+ ],
+ "researchSummaries": [
+  "Coverage is partial. Four jurisdictions were searched once each, and several requested items were not found. UK: Workers get a 24-hour rest in each 7 days, or 48 hours in each 14 [c_affe4efa]. The page describes limits only for large shops (280 sq m or more), so small shops appear to face no Sunday opening limit, though the page does not say so outright [c_affe4efa]. Shop workers can opt out of Sunday work without giving a reason, and are protected against dismissal and unfair treatment for doing so [c_affe4efa]. The notice period is three months if the employer gave the option within two months of starting. It is one month if the option was not given, and the 2016 changes reduced it to one month for large-shop staff [c_affe4efa]. No statutory Sunday premium was found. California: Labor Code 551 and 552 give one day's rest in seven, assessed per workweek and not on a rolling basis [c_a81346ae]. Premium pay applies only to employees who must work every day of the established workweek [c_a81346ae]. Section 556 exempts employers when hours do not exceed 30 per week or six in any one day [c_a81346ae]. No general Sunday premium was found. Australia: One secondary source (not read in this check) gives the General Retail Award Sunday rate as 200% [c_4610f6bf].",
+  "No source splits a new Sunday into incremental revenue versus revenue shifted from Saturday for an independent bakery, and that gap is the main finding. Three partial pieces follow. 1. Weekend concentration. A vendor KPI page says Saturday and Sunday typically carry 42-55% of weekly revenue at independent retail bakeries, with a Toast 2026 median of 48% [c_ea1cc387]. Individual bakeries vary: Tatte runs near 40% and Dominique Ansel above 55% [c_ea1cc387]. This is a benchmark range, not an audited dataset, and it does not separate Sunday from Saturday or say whether those bakeries open on Sundays. 2. Weekday profile. Statista has a revenue index of Dutch bakeries by weekday, based on January 2019 data [c_946217bd]. The extract shows no index values, so no Sunday or Saturday figure can be quoted. 3. Cannibalization analogue. A specialty retailer, not a bakery, opened stores two hours earlier on Saturdays and compared test stores with matched controls [c_63c5f899]. Saturday gross profit rose 8.4% ($210) and Sunday fell 1.1% ($28), against $170 of added cost. The source reports a net loss of $43 per store on average, although those three figures do not sum to that result [c_63c5f899]. Targeting only the stores where the change was profitable gave $2.5M of incremental annual profit [c_63c5f899].",
+  "Wages: the UK National Living Wage for age 21 and over rose from £12.21 to £12.71 an hour in April 2026, a 4.1% rise [c_e18b5042]. It applies to full-time, part-time, zero-hours and casual contracts [c_e18b5042]. It is the legal floor for adult counter staff. Under-21 minimums are £10.85 for ages 18 to 20 and £8.00 for ages 16 to 17 [c_e18b5042]. An aggregator puts the UK bakery assistant average at £12.32 an hour (July 2026) and bakers at about £14.10 [c_3ee9c7ca]. I could not check that page, so treat both figures as weak benchmarks. The assistant figure is below the adult NLW, so it probably includes under-21 rates. Budget at or just above £12.71 for adults. No source found sets a statutory Sunday premium. Time to hire: a general UK figure says average time to hire reached eight weeks, up from just under five a year earlier [c_b68f650d]. I could not check this page. It is not specific to bakery or part-time roles, and its date was not confirmed. Turnover: hospitality is the highest-turnover UK sector. The CIPD population-level measure puts it at about 52%, against a UK average of about 15% [c_b1638d1c]. RotaCloud's 2024 employer data shows 38.7% for hospitality and catering [c_b1638d1c]. Another report puts monthly leavers at about 6% [c_1125d5a4]. None of these is bakery-specific.",
+  "Sunday rates for bakery staff depend on which award covers the shop. All figures come from secondary pay-rate sites, and the primary award texts were not read.\n\nFast Food Industry Award (MA000003): one site gives 150% of base for Sundays, with casuals also at 150% [c_4610f6bf]. The Saturday 125% figure and the 2017 penalty review cut to Level 1 Sunday rates rest on sources I could not read [c_279d1285][c_8e051f32]. Check the award text [c_e4408167].\n\nGeneral Retail Industry Award (MA000004): two sources give permanent staff 150% on Sundays, $41.71 an hour at Level 1 [c_98834dee][c_1c060e54]. Source 1 conflicts, giving 200% for retail permanents and casuals [c_4610f6bf]. Casual retail treatment is unsettled: one source says 175% including the 25% loading [c_1c060e54], another says 200% of base [c_4610f6bf]. The earlier claim that source 5 describes casuals as 1.5x the loaded rate is not in its extract.\n\nSource 6 says counter staff in a franchise bakery sit under the Retail Award, while production bakers may fall under a food manufacturing award [c_1c060e54]. Coverage is unconfirmed.\n\nThe 4.75% minimum-rate rise is not stated in the extracts. Source 1 shows the national minimum wage moving from $24.95 to $26.44 in July 2026. Confirm the shop's award, classification and the Fair Work pay guide before costing Sundays.",
+  "A UK employer can rely on a signed opt-out from the 48-hour average weekly limit if it is voluntary, in writing, and the worker is 18 or over [c_c70d0dea][c_b1ab34c7]. Workers cannot be sacked or treated unfairly for refusing, and it cannot be a collective agreement with the whole workforce [c_c70d0dea][c_b1ab34c7]. A worker can cancel at any time on at least 7 days' notice, up to 3 months depending on the agreement [c_c70d0dea][c_b1ab34c7]. The 48-hour limit is averaged over 17 weeks [c_b1ab34c7], so six shifts a week may not breach it anyway; that depends on shift length, which the sources do not settle. The opt-out does not cover night work. A night worker (usually at least 3 hours in the night period, by default 11pm to 6am) is limited to an average of 8 hours per 24 hours and cannot opt out [c_b7408307][c_b1ab34c7]. Whether pre-dawn bakers qualify depends on their start times. Records: the employer must keep a record that workers have opted out [c_c70d0dea]. Sources 3 and 5 were not read, so the detail on lists and signed copies is unconfirmed. For night workers, keep hours records showing the 8-hour limit is respected, for 2 years from the date made [c_b7408307]. Employers must offer a health assessment before someone becomes a night worker, with repeat assessments as reasonable [c_b7408307].",
+  "The extracts do not give a Sunday versus weekday unsold-stock waste rate for UK independent bakeries. Both cited pages report on the same Too Good To Go survey of bakery employees (255 employees and 2,024 consumers polled) [c_c189ea1a][c_9e6a9670]. They cover attitudes and causes of waste: 35% cite strict health and safety guidelines as the top reason [c_c189ea1a][c_9e6a9670], and 31% say weather affects demand [c_c189ea1a]. Ready-made sandwiches are the most wasted item, named by 58% of employees, followed by cakes (42%), fresh bread (37%) and pastries (36%) [c_9e6a9670]. Neither page splits waste by day of the week. The draft said it saw only search-result summaries; the extracts now show full article text, and neither contains the roughly one-fifth unsold or 16% production waste figures mentioned in the draft, so those stay excluded. The panel should not assume a typical Sunday waste rate from published data. The founder's own till and waste records are the best basis, and the bakery's Saturday unsold rate is a possible proxy, though that is a judgement and not something the sources state. Any Sunday waste figure in the debate should be labelled as an assumption."
+ ],
+ "computations": 0,
+ "events": [
+  {
+   "type": "panel",
+   "personas": [
+    {
+     "id": "marcus",
+     "name": "Marcus Hale",
+     "role": "Moderator and devil's advocate",
+     "biases": "Suspicious of easy agreement and of confident numbers nobody has checked.",
+     "isModerator": true
+    },
+    {
+     "id": "priya",
+     "name": "Priya Raghunathan",
+     "role": "Small Food-Retail Finance Adviser and Demand Analyst",
+     "biases": "She overweights what can be measured in a till report and tends to treat staff fatigue as a cost line rather than a hard limit. She assumes new staff can be found at the benchmark wage. She underweights the brand value of being reliably open and the owner's own quality of life."
+    },
+    {
+     "id": "conor",
+     "name": "Conor Whelan",
+     "role": "Employment Lawyer and Workforce Risk Specialist",
+     "biases": "He overweights legal and retention downside and treats the two six-day staff as an existing compliance risk, whether or not Sunday is added. He underweights the commercial cost of staying closed. He can make a lawful plan sound more dangerous than it is."
+    },
+    {
+     "id": "marisol",
+     "name": "Marisol Ortega",
+     "role": "Head of Production and Rota, a three-site neighbourhood bakery group",
+     "biases": "She overweights staff morale and the operational fragility of tiny teams. She trusts her own read of neighbourhood footfall more than data. She is sceptical that good weekend hires exist, because she has been burned. She underweights how much a well-run Sunday trial could tell the owner."
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 22,
+   "id": "m_xP4nayyj",
+   "speaker": "research",
+   "kind": "research",
+   "text": "Rules differ sharply. UK shop workers can opt out of Sunday work, with notice of one to three months. California gives one rest day per workweek. Germany limits bakery Sunday work to 3 hours, with reform planned, and sets shop hours at state level. Sunday pay rates are largely unverified."
+  },
+  {
+   "type": "message",
+   "seq": 24,
+   "id": "m_ylU_b4gG",
+   "speaker": "research",
+   "kind": "research",
+   "text": "No source splits new Sunday sales from Saturday transfer for a bakery. The one benchmark puts Saturday plus Sunday at 42 to 55 percent of weekly revenue [c_ea1cc387]. A retail Saturday-hours test showed Sunday slipping 1.1 percent and a net loss on average [c_63c5f899]."
+  },
+  {
+   "type": "message",
+   "seq": 26,
+   "id": "m_OR6xYGCn",
+   "speaker": "research",
+   "kind": "research",
+   "text": "UK adult minimum is £12.71 an hour from April 2026 [c_e18b5042]. Hospitality turnover is about 52% on the CIPD measure, or 38.7% in RotaCloud employer data [c_b1638d1c]. General time to hire is about eight weeks [c_b68f650d]. None of this is bakery-specific."
+  },
+  {
+   "type": "message",
+   "seq": 39,
+   "id": "m_TOcNGAUm",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Which country, which contract, which worker? The motion protects the two six-day staff from a seventh day and stops there. It quietly assumes their six-day pattern is lawful today. In the UK that means an uninterrupted 24 hours' rest each week, or 48 per fortnight, and an average under 48 hours unless they've signed an opt-out. A pre-dawn bake on six days can blow that average before Sunday is even discussed. Marisol, you've run",
+   "claims": [
+    {
+     "text": "UK working time rules require 24 hours uninterrupted weekly rest or 48 per fortnight and a 48-hour average weekly limit absent a signed opt-out",
+     "grade": "assumed"
+    },
+    {
+     "text": "six pre-dawn bakery shifts can push the average past 48 hours",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 43,
+   "id": "m_yardKboA",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Yes, Conor, and you're right. Six pre-dawn bakes probably already break the average. That's exactly why Sunday can't take a single hour",
+   "claims": [
+    {
+     "text": "six pre-dawn bake days likely already push the two six-day staff past the 48-hour average",
+     "grade": "assumed"
+    },
+    {
+     "text": "any Sunday hours borrowed from them add to an existing overload",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 51,
+   "id": "m_UMpg93EW",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Marisol, your crew lands around 450 to 600 pounds a week. At 60 percent margin net of waste, Sunday needs roughly 1,000 pounds of genuinely",
+   "claims": [
+    {
+     "text": "A separate Sunday crew costs roughly 450 to 600 pounds a week",
+     "grade": "assumed"
+    },
+    {
+     "text": "At a 60 percent margin net of waste, break-even needs about 1,000 pounds of incremental Sunday takings",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 54,
+   "id": "m_dYBxFND8",
+   "speaker": "research",
+   "kind": "research",
+   "text": "Retail Award permanents get 150 percent on Sundays per two sources, but another site says 200 percent, so that conflict needs settling. Casual rates range from 150 to 200 percent. Bakery counter staff are likely under Retail, unconfirmed. Check the Fair Work pay guide. [c_98834dee][c_1c060e54][c_4610f6bf]"
+  },
+  {
+   "type": "message",
+   "seq": 57,
+   "id": "m_Jc6W6ugo",
+   "speaker": "research",
+   "kind": "research",
+   "text": "Yes, a written, voluntary opt-out signed by workers aged 18 or over is lawful and can be cancelled on 7 days to 3 months' notice. But it cannot waive the 8-hour night-work average. Keep opt-out records and night-hours records for 2 years. [c_c70d0dea][c_b7408307][c_b1ab34c7]"
+  },
+  {
+   "type": "message",
+   "seq": 59,
+   "id": "m_IYFRbxlW",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Priya, your 450 to 600 pounds: is that weekday rate? If this is Australia, the award penalty rate on Sundays runs 150 to 200 percent. That moves your break-even before anyone bakes.",
+   "claims": [
+    {
+     "text": "Priya's 450 to 600 pound crew cost is likely priced at weekday rates",
+     "grade": "assumed"
+    },
+    {
+     "text": "Australian Retail Award Sunday penalty rates run 150 to 200 percent, sources conflict",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 64,
+   "id": "m_th0PMvwj",
+   "speaker": "research",
+   "kind": "research",
+   "text": "No published UK data in these sources splits independent bakery waste by day. The Too Good To Go survey covers causes and products, not Sundays. Treat any Sunday waste figure as an assumption and use the founder's own records."
+  },
+  {
+   "type": "message",
+   "seq": 66,
+   "id": "m_Cs0uh7F4",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Priya, the desk can't settle it: 150 or 200 percent for permanents, and up to 200 for casuals. Which rate did you price that crew at? Weekday rate isn't a Sunday number.",
+   "claims": [
+    {
+     "text": "Australian Sunday penalty rates run 150 to 200 percent depending on award and employment type, conflicting sources",
+     "grade": "assumed"
+    },
+    {
+     "text": "Priya's 450 to 600 pound crew cost may be at weekday rate",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 69,
+   "id": "m_teOmYxJt",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Priya, on Sunday the premium is the crew cost. And the desk just answered Marisol: an opt-out can't waive the night-work eight-hour average. Pre-dawn bakers are probably night workers. Sunday needs a new baker.",
+   "claims": [
+    {
+     "text": "UK 48-hour opt-out cannot waive the 8-hour night-work average, per desk c_b7408307",
+     "grade": "assumed"
+    },
+    {
+     "text": "pre-dawn bakers likely qualify as night workers",
+     "grade": "assumed"
+    },
+    {
+     "text": "Sunday premium applies to the whole Sunday crew wage, not a margin on top",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 70,
+   "id": "m_j4cdY4cg",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Fair, Conor, the premium sits on the whole crew. And the desk has nothing on Sunday waste, so my waste penalty is assumption, low confidence. The founder's own unsold-stock sheets settle it, not me.",
+   "claims": [
+    {
+     "text": "Sunday waste runs higher than weekday waste and flatters till-based trial figures",
+     "grade": "assumed"
+    },
+    {
+     "text": "Sunday premium pay applies to the entire Sunday crew cost, raising break-even",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 77,
+   "id": "m_vs2Q2EDA",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Conor's right, no premium. Fifteen pounds loaded on the £12.71 floor, about thirty hours: baker, counter, Saturday-night prep, Monday clean-down, owner cover. Of the thousand, at least £750 must be new money. That split is assumption.",
+   "claims": [
+    {
+     "text": "Sunday crew costed at about £15 an hour loaded on the £12.71 UK minimum, roughly 30 hours, no statutory premium",
+     "grade": "assumed"
+    },
+    {
+     "text": "roughly £750 of a £1,000 Sunday till must be new money rather than transferred Saturday or Monday trade",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 79,
+   "id": "m_lgQPGlGc",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Not a thousand, Priya. A sell-out reduced range off retarded dough, maybe six or seven hundred, and half of it's Saturday regulars shifting days. Your £750 new money isn't there.",
+   "claims": [
+    {
+     "text": "a reduced retarded-dough Sunday range in a neighbourhood shop takes about £600 to £700 at sell-out",
+     "grade": "assumed"
+    },
+    {
+     "text": "roughly half of Sunday takings would be Saturday regulars moving days, not new money",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 81,
+   "id": "m_NOSL9kiJ",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Marisol, Saturday holding flat against its twelve-week baseline while Sunday clears a thousand. Your six-fifty, half shifted, is £325 new: about £195 contribution against a £450 crew. That fails before opening.",
+   "claims": [
+    {
+     "text": "Real new money shows as Saturday takings holding at baseline while Sunday clears about £1,000",
+     "grade": "assumed"
+    },
+    {
+     "text": "On Marisol's £650 with half transferred from Saturday, about £325 is new, roughly £195 contribution at 60% margin, below a £450 crew cost",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 85,
+   "id": "m_GgT1fHOq",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Marisol, before you cost that crew, here's what UK law does to it. Any shop worker whose contract includes Sunday can opt out on notice and can't lawfully be dismissed for doing so. So if the founder hires a part-timer for Saturday and Sunday, the trial's crew can walk off Sunday mid-trial. The narrow exception is someone employed to work only on Sundays; they can't opt out. So the hire has to be a Sunday-only contract, signed before day one. Is your crew built that way, or does it still lean on Saturday staff?",
+   "claims": [
+    {
+     "text": "UK shop workers contracted for Sunday work can opt out on notice and are protected from dismissal for it",
+     "grade": "assumed"
+    },
+    {
+     "text": "workers employed to work only on Sundays cannot use the Sunday opt-out",
+     "grade": "assumed"
+    },
+    {
+     "text": "a Saturday-plus-Sunday hire leaves the trial's Sunday crew legally unstable",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 86,
+   "id": "m_s8TvpGcD",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Sunday-only, Conor, two part-timers plus a named backup, none of them Saturday staff. That's what saved my good Sunday. The bad one leaned on Saturday people, and that's how I lost my head baker.",
+   "claims": [
+    {
+     "text": "My successful Sunday ran on dedicated weekend part-time hires",
+     "grade": "observed"
+    },
+    {
+     "text": "My failed Sunday relied on existing staff and the head baker quit",
+     "grade": "observed"
+    },
+    {
+     "text": "Sunday-only contracts close the opt-out gap Conor raised",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 88,
+   "id": "m_fYK3Ozxj",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Good, Sunday-only contracts close the opt-out gap. But who's your named backup, Marisol? If it's either six-day worker, the plan fails on the first sick day.",
+   "claims": [
+    {
+     "text": "Sunday-only contracts remove the shop-worker Sunday opt-out risk for the trial crew",
+     "grade": "assumed"
+    },
+    {
+     "text": "a backup drawn from the six-day staff would push them into a seventh day and breach weekly rest",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 93,
+   "id": "m_fLBX3P-X",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "No, Conor, neither of them. A third Sunday-only part-timer, trained on the same Saturdays, on call. No float means we hire the backup too. Otherwise we don't open.",
+   "claims": [
+    {
+     "text": "a third Sunday-only part-timer can be hired and trained across the same Saturdays as backup",
+     "grade": "assumed"
+    },
+    {
+     "text": "the bakery has no float staff to cover a Sunday sick call",
+     "grade": "observed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 95,
+   "id": "m_ydtMIcgF",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Marisol, three Sunday-only contracts pushes that crew toward £600. So what would the till have to show? Saturday core lines sold out before 11am on eight of the last twelve Saturdays. That's demand Saturday is turning away, which Sunday captures rather than cannibalises. On your good Sunday, was Saturday selling out early?",
+   "claims": [
+    {
+     "text": "adding a third on-call Sunday-only part-timer raises weekly crew cost toward £600",
+     "grade": "assumed"
+    },
+    {
+     "text": "early Saturday sell-outs of core lines indicate unmet demand that Sunday would add rather than transfer",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 105,
+   "id": "m_TO2L-EDI",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Around £550 a week, plus four training Saturdays upfront. And yes, Priya, Saturday was selling out by eleven before my good Sunday. Without that, £600 against my £700 fails. Don't open.",
+   "claims": [
+    {
+     "text": "Three Sunday-only part-timers including on-call backup cost about £550 a week before training",
+     "grade": "assumed"
+    },
+    {
+     "text": "Saturday was selling out by 11am before my successful Sunday opened",
+     "grade": "observed"
+    },
+    {
+     "text": "Without Saturday sell-outs, a £600 crew against a £700 Sunday ceiling fails",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 106,
+   "id": "m_FN7LaNlB",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Yes, Conor, three new people on three Sunday-only contracts, about £550 a week before a loaf sells. And Marisol's sell-outs were her shop's Saturdays. The founder's own till hasn't shown us his.",
+   "claims": [
+    {
+     "text": "Three Sunday-only contracts cost about £550 a week before any sales",
+     "grade": "assumed"
+    },
+    {
+     "text": "Marisol's Saturday sell-outs were at her own shop, not the founder's",
+     "grade": "observed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 108,
+   "id": "m_AqNXyS7_",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Yes, Priya, three new people, and that's the only lawful version. Your £550 still leaves out eight weeks to hire, and it does nothing for the two six-day staff already near their rest limits.",
+   "claims": [
+    {
+     "text": "Three Sunday-only contracts is the only lawful staffing route discussed",
+     "grade": "assumed"
+    },
+    {
+     "text": "hiring takes about eight weeks, per a general non-bakery benchmark",
+     "grade": "assumed"
+    },
+    {
+     "text": "the two six-day staff are plausibly at or past weekly rest and night-work limits already",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 110,
+   "id": "m_17KI3L8x",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Priya, they're the whole constraint. My head baker said the same thing, \"I'm fine\", then walked after eight Sundays. So the founder checks his Saturday till, and those two stay off Sunday regardless.",
+   "claims": [
+    {
+     "text": "My head baker quit after eight weeks of covering Sunday bakes",
+     "grade": "observed"
+    },
+    {
+     "text": "The two six-day staff are the binding constraint on any Sunday plan",
+     "grade": "assumed"
+    },
+    {
+     "text": "The Saturday sell-outs were at my shop, not the founder's",
+     "grade": "observed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 112,
+   "id": "m_z9uDW23C",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Marisol, they're off Sunday in every version we've costed, so they don't decide yes or no. The money decides that. Who does Saturday-night prep and Monday clean-down, though? That still falls on them.",
+   "claims": [
+    {
+     "text": "Every costed Sunday option already excludes the two six-day staff, so they don't decide yes or no",
+     "grade": "assumed"
+    },
+    {
+     "text": "Sunday depends on Saturday-evening prep and Monday clean-down, which fall on the existing staff",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 114,
+   "id": "m_IxqzltLO",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Sunday crew does the clean-down in the last hour of their own shift, Priya. Saturday-night prep is the real hole. Par-bake it midweek on paid hours, never tacked onto Saturday. Can't? Don't open.",
+   "claims": [
+    {
+     "text": "The Sunday crew can do clean-down inside their own Sunday shift",
+     "grade": "assumed"
+    },
+    {
+     "text": "Sunday dough can be par-baked and frozen midweek on separately paid hours instead of being added to Saturday's workload",
+     "grade": "assumed"
+    },
+    {
+     "text": "Saturday is already at full capacity for the six-day staff",
+     "grade": "observed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 122,
+   "id": "m_KAWgteVO",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Not either of them. One of the two shorter-week staff, about six extra paid hours midweek, so roughly £90 on top of my £550. If neither of them wants those hours, we don't open.",
+   "claims": [
+    {
+     "text": "The two staff not on six days have room for about six extra midweek par-bake hours",
+     "grade": "assumed"
+    },
+    {
+     "text": "Six hours of par-baking at about £15 loaded adds roughly £90 a week to the Sunday crew cost",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 124,
+   "id": "m_gIOuPqvk",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Marcus, yes. If either six-day worker does those par-bake hours, the motion's rest condition breaks, full stop. Marisol, I misheard you: a shorter-week staffer is the right person. But those six hours need a written contract variation, not a favour, or she can drop them the week Sunday depends on them. And the motion still misses this. A trial produces a written rota. If the two six-day bakers are already over the night-work eight-hour average, that rota becomes exhibit one at tribunal. Fix their current pattern first, then trial Sunday.",
+   "claims": [
+    {
+     "text": "Any midweek par-bake hours worked by either six-day staffer would breach the motion's rest condition",
+     "grade": "assumed"
+    },
+    {
+     "text": "Extra hours for a shorter-week staffer need a signed contract variation to be relied on",
+     "grade": "assumed"
+    },
+    {
+     "text": "The two six-day pre-dawn bakers may already exceed the non-waivable night-work 8-hour average",
+     "grade": "assumed"
+    },
+    {
+     "text": "A written trial rota would serve as evidence in any working-time claim",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 129,
+   "id": "m_5RthuQDc",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Yes, Conor, signed before the first Sunday, and those six hours go in a variation of their own. If she won't sign, nobody else picks them up, and we don't open.",
+   "claims": [
+    {
+     "text": "A signed variation for the shorter-week staffer's six midweek par-bake hours can be in place before the first Sunday",
+     "grade": "assumed"
+    },
+    {
+     "text": "Without that signature there is no fallback that avoids the six-day staff, so the bakery should not open",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 131,
+   "id": "m_5-IHXl6F",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "No, Priya, costs first. Saturday till, then your break-even at £640 with the par-bake hours. If it clears, we hire and sign, then four training Saturdays. Signatures come before the first bake.",
+   "claims": [
+    {
+     "text": "Sunday crew plus midweek par-bake hours costs about £640 a week",
+     "grade": "assumed"
+    },
+    {
+     "text": "four training Saturdays are needed before the first Sunday",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 133,
+   "id": "m_j4zB2TNe",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Marisol, no. £640 at sixty percent margin needs about £1,070 of new takings. Your £325 new gives £195 contribution. Short by £445 a week. Only the founder's Saturday sell-outs could close that.",
+   "claims": [
+    {
+     "text": "A £640 weekly Sunday crew at 60 percent margin needs about £1,070 of incremental takings to break even",
+     "grade": "assumed"
+    },
+    {
+     "text": "Marisol's estimate of £650 Sunday takings, half shifted from Saturday, yields about £325 new and £195 contribution",
+     "grade": "assumed"
+    },
+    {
+     "text": "Only evidence of Saturday sell-outs showing unmet demand could close the gap",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 135,
+   "id": "m_olLTOZDc",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Conor, nobody's existing contract changes for Sunday. The shorter-week staffer's six par-bake hours go in a separate variation she can refuse, and if she refuses, we don't open.",
+   "claims": [
+    {
+     "text": "existing contracts stay unchanged under the Sunday plan",
+     "grade": "assumed"
+    },
+    {
+     "text": "the par-bake hours can be added by a voluntary separate variation",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 143,
+   "id": "m_qMotc3um",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "It doesn't close, Marcus. \"Covers setup\" was me hoping. On my numbers Sunday fails. It only works if the founder's Saturday till shows sell-outs turning people away. Without that, don't open.",
+   "claims": [
+    {
+     "text": "Sunday at about £650 takings, half shifted from Saturday, cannot cover a £640 crew",
+     "grade": "assumed"
+    },
+    {
+     "text": "only turned-away Saturday demand could close the weekly gap",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 145,
+   "id": "m_BRI7Kics",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Marisol's numbers say Sunday probably fails. Fine. That doesn't let the founder off. Two people on six pre-dawn bakes a week are a live exposure today, Sunday or no Sunday. If either is a night worker averaging over eight hours, no opt-out cures it, and a single tribunal award or one of them resigning costs more than a year of the £195 contribution we've been arguing over. So item one on his list is eight weeks of their timesheets and their signed contracts, before the Saturday till. Priya, does your £640 carry any provision for claim or replacement cost?",
+   "claims": [
+    {
+     "text": "the two six-day pre-dawn bakers may already exceed the night-work eight-hour average, which no opt-out can waive",
+     "grade": "assumed"
+    },
+    {
+     "text": "one tribunal award or the loss of one long-serving staffer would exceed a year of Sunday contribution",
+     "grade": "assumed"
+    },
+    {
+     "text": "Priya's £640 break-even contains no provision for claim or replacement cost",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 147,
+   "id": "m_u8CsSiWP",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "No, Conor, none. £640 is wages only. Add one walkout (eight weeks to hire, four training Saturdays) and the gap widens past £445. Agreed, his timesheets come first. Sunday stays closed.",
+   "claims": [
+    {
+     "text": "The £640 Sunday break-even carries no provision for claim or replacement cost",
+     "grade": "assumed"
+    },
+    {
+     "text": "Replacement cost of one leaver (about eight weeks to hire plus training) widens the weekly shortfall beyond £445",
+     "grade": "assumed"
+    },
+    {
+     "text": "Timesheets and contracts of the two six-day staff should be gathered before the Saturday till review",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 151,
+   "id": "m_sn0Qxtgc",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Core lines sold out before eleven on at least eight of his last twelve Saturdays, with people still walking in empty-handed, enough turned-away trade to believe £1,070 of new Sunday money. Short of that, don't open.",
+   "claims": [
+    {
+     "text": "Saturday sell-outs before eleven on most Saturdays signal demand Sunday could capture rather than cannibalise",
+     "grade": "assumed"
+    },
+    {
+     "text": "Sunday needs about £1,070 new takings to clear a £640 crew at sixty percent margin",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 153,
+   "id": "m_jXfhr0R1",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Priya's right, turnaway is a headcount, not money. But the order holds. If those two bakers' timesheets show a night-work breach, Sunday is moot and he fixes their pattern first. Priya, what conversion rate turns Marisol's walk-ins into £1,070?",
+   "claims": [
+    {
+     "text": "a night-work average breach by the six-day bakers would make the Sunday question moot until fixed",
+     "grade": "assumed"
+    },
+    {
+     "text": "turned-away customers do not translate directly into new Sunday takings",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 154,
+   "id": "m_UgDKWO5L",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Conor, there's no conversion rate that gets us there without his till. At an eight-pound basket, £1,070 is about 135 extra customers every Sunday. Does anyone count Saturday walk-outs? Nobody does. Don't open.",
+   "claims": [
+    {
+     "text": "Average neighbourhood bakery basket around eight pounds",
+     "grade": "assumed"
+    },
+    {
+     "text": "£1,070 of new Sunday takings needs roughly 135 extra customers a week",
+     "grade": "assumed"
+    },
+    {
+     "text": "Saturday turned-away customers are not usually recorded in a small bakery's till data",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 163,
+   "id": "m_l7Qcw1oC",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Marisol, both, six Saturdays: sell-out time per core line, and a counter tally of turn-aways. Divide £1,070 by his real till basket; £6 makes it 180. Below that on most Saturdays, stay shut.",
+   "claims": [
+    {
+     "text": "Break-even needs about £1,070 of new Sunday takings, so required extra customers equal £1,070 divided by the founder's actual average basket",
+     "grade": "assumed"
+    },
+    {
+     "text": "A six-Saturday record of sell-out times plus a counter turn-away tally is the only available proxy for unmet Saturday demand, since the till cannot record walk-outs",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 164,
+   "id": "m_sVjdSDLY",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Nobody does, Priya, so the tally goes to counter staff inside paid hours, never the two six-day bakers. The motion stands only if amended: their timesheets cleared before any Sunday trial.",
+   "claims": [
+    {
+     "text": "the founder has no existing count of Saturday turn-aways",
+     "grade": "assumed"
+    },
+    {
+     "text": "the six-day bakers' current pattern may already breach rest or night-work limits and must be checked first",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 166,
+   "id": "m_CoZcfrQH",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Yes, Priya, both, six Saturdays, and the tally sits with the counter person, never the bakers. Sell-out times are easy. Turn-aways get missed the minute the queue's long, so count only who asks.",
+   "claims": [
+    {
+     "text": "Turn-away tallies get missed during busy queues unless counting is limited to customers who ask for a sold-out item",
+     "grade": "assumed"
+    },
+    {
+     "text": "Sell-out times per core line are easy for counter staff to record",
+     "grade": "observed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 167,
+   "id": "m_O71E6PjB",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Conor, nobody counts them today, which is exactly why my no stands until six Saturdays of tallies say otherwise. Count only those who ask, as Marisol said. Confidence on that turn-away tally: medium at best.",
+   "claims": [
+    {
+     "text": "No one currently counts Saturday turn-aways, so unmet demand is unproven",
+     "grade": "assumed"
+    },
+    {
+     "text": "A tally of customers who ask is an undercount but a usable floor",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 169,
+   "id": "m_15lqqc4p",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Priya, six Saturdays of counting costs nothing while we're shut. The motion stands only with Sunday-only hires and a named backup, neither six-day baker.",
+   "claims": [
+    {
+     "text": "Counting Saturday sell-outs and turn-aways while Sunday stays closed adds no material cost",
+     "grade": "assumed"
+    },
+    {
+     "text": "Sunday-only hires plus a named backup is what made my good Sunday hold up",
+     "grade": "observed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 171,
+   "id": "m_i-EU9BkT",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Marisol, agreed, counting is free. But I'd only back the motion with the break-even written down first, on combined Saturday plus Sunday contribution, waste costed separately.",
+   "claims": [
+    {
+     "text": "Six Saturdays of counting costs the shop nothing while Sunday stays shut",
+     "grade": "assumed"
+    },
+    {
+     "text": "Sunday break-even must be judged on combined Saturday plus Sunday contribution net of separately costed waste",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 180,
+   "id": "m_lraibhg1",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Marcus, I'm assuming one in two askers comes back on a Sunday, confidence low. That means roughly 360 asks every Saturday. No neighbourhood counter sees that. Anything short of it, stay shut.",
+   "claims": [
+    {
+     "text": "half of Saturday customers who ask for a sold-out line would return on Sunday",
+     "grade": "assumed"
+    },
+    {
+     "text": "a neighbourhood bakery counter does not see around 360 sold-out asks on a Saturday",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 183,
+   "id": "m_StA2Fm6m",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Marcus, Priya's 360 is my number too. My busiest Bristol counter never saw a third of that. So unless his Saturdays surprise us, don't open.",
+   "claims": [
+    {
+     "text": "my busiest Bristol counter never sees anywhere near 360 Saturday asks for sold-out lines",
+     "grade": "observed"
+    },
+    {
+     "text": "the founder's Saturdays are unlikely to show that many turn-aways either",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 185,
+   "id": "m_KzX08pc_",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Priya, whichever way the till goes, one thing nobody has priced: how the trial ends. If the Saturday counts ever justify a Sunday, those three hires are employees. When the kill criterion fires, ending their Sundays is a dismissal, and the qualifying period for unfair dismissal is due to shorten. So the three Sunday-only contracts must be fixed-term, with the end date and your written break-even test inside them, and an early-termination clause. Then a failed trial costs notice pay, not a tribunal. Does your break-even carry notice pay for three people?",
+   "claims": [
+    {
+     "text": "Ending Sunday-only roles after a failed trial is a dismissal and carries legal exposure",
+     "grade": "assumed"
+    },
+    {
+     "text": "The UK unfair dismissal qualifying period is due to shorten, raising exposure for short-service trial hires",
+     "grade": "assumed"
+    },
+    {
+     "text": "Fixed-term contracts with the break-even test and an end date written in reduce a failed trial's cost to notice pay",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 186,
+   "id": "m_rEhDFoL0",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Your sixty percent, Priya. Three Sunday-only contracts plus par-bake hours, £640, needs £1,070 of new money. Three hundred sixty asks never happen on a neighbourhood counter. That's the margin.",
+   "claims": [
+    {
+     "text": "Sunday crew of three Sunday-only contracts plus par-bake hours costs about £640 a week",
+     "grade": "assumed"
+    },
+    {
+     "text": "a neighbourhood counter does not see 360 Saturday asks",
+     "grade": "observed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 187,
+   "id": "m_Fhyu8SYW",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "No, Conor, it doesn't. Fixed-term with the kill date inside, agreed. Notice for three is roughly one more week of crew, call it £550 one-off. That widens a gap that's already £445 a week.",
+   "claims": [
+    {
+     "text": "Notice pay for three Sunday-only hires on a killed trial is roughly one week of crew cost, about £550",
+     "grade": "assumed"
+    },
+    {
+     "text": "The weekly break-even gap is already about £445 before notice pay",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 189,
+   "id": "m_-SAPo4uQ",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Fair, Priya. After a month's service the statutory minimum notice is one week each, so £550 holds. The claim provision is still nothing, though, and the two six-day bakers' exposure sits there whether or not Sunday opens.",
+   "claims": [
+    {
+     "text": "UK statutory minimum notice is one week after one month's service, so notice for three is roughly one week of crew cost",
+     "grade": "assumed"
+    },
+    {
+     "text": "the two six-day bakers' rest and night-work exposure exists independent of any Sunday decision",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 193,
+   "id": "m_2Ql9ibqt",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Mine, Marcus, my Bristol shop, and guessed off a long queue, never counted. So it's not evidence for his bakery. It doesn't change my answer. Six Saturdays of the counter tally, and short of 360 asks, don't open.",
+   "claims": [
+    {
+     "text": "Bristol Saturday turnaway of near £1,000 was a guess from queue length, not a count",
+     "grade": "assumed"
+    },
+    {
+     "text": "my busiest Bristol counter never saw a third of 360 asks on a Saturday",
+     "grade": "observed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 199,
+   "id": "m_IwSQs89E",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Assumed, Marcus, not from engagement. If a fifth never shop Saturday, askers must supply 144 of the 180. One in two needs 288, one in three 432, two in three 216.",
+   "claims": [
+    {
+     "text": "one in two Saturday askers return on a Sunday",
+     "grade": "assumed"
+    },
+    {
+     "text": "180 new Sunday customers needed at a £6 basket to reach £1,070",
+     "grade": "assumed"
+    },
+    {
+     "text": "even a 216-ask threshold exceeds what a neighbourhood counter sees on a Saturday",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 201,
+   "id": "m_Zt3RsKQE",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Priya, even your 216 assumes Saturday holds. If Sunday pulls Saturday regulars across, Saturday drops. Is that loss in your 180?",
+   "claims": [
+    {
+     "text": "Sunday trade pulls some Saturday regulars across, so Saturday takings fall",
+     "grade": "assumed"
+    },
+    {
+     "text": "Priya's asker thresholds leave out that lost Saturday trade",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 203,
+   "id": "m_kl1CdAZ7",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "No, Marisol, it doesn't. The 180 assumes Saturday holds flat. Every regular Sunday pulls across adds one more to the 180, so the test is combined Saturday plus Sunday takings, never Sunday's till alone.",
+   "claims": [
+    {
+     "text": "the 180 new Sunday customers figure assumed no Saturday cannibalisation",
+     "grade": "assumed"
+    },
+    {
+     "text": "each Saturday customer transferred to Sunday raises the required Sunday count one for one",
+     "grade": "assumed"
+    },
+    {
+     "text": "the break-even test must run on combined Saturday plus Sunday takings",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 204,
+   "id": "m_SPMCXqmQ",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Then write the combined Saturday-plus-Sunday figure down before anyone's hired, Priya. If half his Sunday is just Saturday regulars shifting, your 180 nearly doubles.",
+   "claims": [
+    {
+     "text": "Roughly half of Sunday trade would be Saturday regulars shifting days",
+     "grade": "assumed"
+    },
+    {
+     "text": "Cannibalisation from Saturday raises the required new Sunday customer count well above 180",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 205,
+   "id": "m__erJT3yi",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Marisol, follow your Saturday drop through to the rota. If Sunday pulls regulars across and Saturday takings fall, the founder's instinct is to trim Saturday shifts. For anyone whose contract guarantees those hours, cutting them without agreement is a unilateral variation, and in a four-person shop that's a constructive dismissal claim waiting to happen. Priya, so the combined test needs a third line: no existing employee's contracted Saturday hours reduced during the trial. Lawful, lawful but risky, or unlawful: trimming Saturday by consent is risky, trimming it by notice alone is unlawful.",
+   "claims": [
+    {
+     "text": "Saturday cannibalisation may push the founder to cut existing staff's Saturday shifts",
+     "grade": "assumed"
+    },
+    {
+     "text": "reducing contracted hours without agreement is a unilateral variation exposing a small employer to constructive dismissal claims",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 209,
+   "id": "m_Ve_pzn9b",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Yes, Marisol, before any hire. Written now: combined Saturday plus Sunday contribution, Sunday waste costed separately, full £640 crew line. Saturday falls, the bar rises. No signed number, no Sunday.",
+   "claims": [
+    {
+     "text": "Break-even must be written on combined Saturday plus Sunday contribution before any hire",
+     "grade": "assumed"
+    },
+    {
+     "text": "Any fall in Saturday takings raises the required Sunday figure",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 211,
+   "id": "m_M2xDBagW",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "Nothing, Priya, agreed. That's my point: the third line stops him from closing the gap by cutting Saturday hours. Saturday wages stay fixed in the combined test, so the gap can't be hidden there.",
+   "claims": [
+    {
+     "text": "Cutting contracted Saturday hours without agreement risks a constructive dismissal claim",
+     "grade": "assumed"
+    },
+    {
+     "text": "Holding Saturday wages fixed in the combined test prevents the gap being closed by trimming staff",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 216,
+   "id": "m_bSaf5CLh",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Half, Marcus, and that's a guess. Nobody ever split my Bristol tills. The thousand was me running hot: it's not a measured loss. If £325 switches, Saturday drops £325. Don't open.",
+   "claims": [
+    {
+     "text": "About half of Sunday takings would be Saturday regulars switching days",
+     "grade": "assumed"
+    },
+    {
+     "text": "Bristol tills were never split into new versus switched Sunday trade",
+     "grade": "observed"
+    },
+    {
+     "text": "Saturday would lose roughly £325 a week, not a thousand",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 218,
+   "id": "m_WD6eoUZM",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Yes, Conor, Saturday wages stay fixed in the combined test. And Marisol's £325 switching off Saturday gets netted out too, so Sunday must clear the £640 crew on new money alone.",
+   "claims": [
+    {
+     "text": "Combined Saturday plus Sunday test holds Saturday wages fixed and nets out switched Saturday takings",
+     "grade": "assumed"
+    },
+    {
+     "text": "Sunday crew cost around £640 a week including par-bake hours",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 220,
+   "id": "m_xS2l11Fk",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "On this one, Marisol. Your switching £325 just moves from Saturday's till to Sunday's, so across the weekend it nets to nothing. Only new money pays a £640 crew, and you've got £325 of it. Still no.",
+   "claims": [
+    {
+     "text": "Half of Sunday takings are Saturday regulars switching days, which adds nothing to combined weekend contribution",
+     "grade": "assumed"
+    },
+    {
+     "text": "£640 crew at 60 percent margin needs about £1,070 of new weekly takings",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 221,
+   "id": "m_l07EGYSe",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Fair, Priya, switching nets to nothing across the weekend. So £325 new against £640, and those two bakers still never touch Sunday. Don't open.",
+   "claims": [
+    {
+     "text": "half of Sunday takings would be Saturday regulars switching, netting to zero across the weekend",
+     "grade": "assumed"
+    },
+    {
+     "text": "only about £325 of a £650 Sunday is new money, short of the £640 crew cost",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 223,
+   "id": "m_Ts904RbU",
+   "speaker": "priya",
+   "kind": "floor",
+   "text": "Agreed, Marisol. So the founder's list: their timesheets first, then six Saturdays of tallies. Without a written break-even on the board, nothing opens.",
+   "claims": [
+    {
+     "text": "£325 new Sunday money against a £640 crew fails break-even",
+     "grade": "assumed"
+    },
+    {
+     "text": "Saturday switching nets to zero across the weekend",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 227,
+   "id": "m_lBDME3AD",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Nothing, Marcus. I withdrew the thousand. Write it down, Priya—put a line in for losing a baker. That's what cost me my Sunday.",
+   "claims": [
+    {
+     "text": "my head baker quit after eight weeks covering Sundays",
+     "grade": "observed"
+    },
+    {
+     "text": "losing a key baker costs more than a Sunday trial earns",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "decision",
+   "decision": {
+    "motionId": "m1",
+    "motionTitle": "Sunday opening, and on what terms",
+    "decision": "Do not open on Sundays now. Sunday stays shut until four gates pass in order. Gate one: the two six-day bakers' last eight weeks of timesheets and signed contracts are checked against the 24-hour weekly rest rule and the non-waivable 8-hour night-work average, and any breach is fixed first. Gate two: counter staff, inside paid hours and never the two bakers, record six Saturdays of sell-out times per core line plus a tally of customers who ask for a sold-out item. Gate three: a written combined Saturday-plus-Sunday break-even is produced that nets out switched Saturday trade, holds existing Saturday wages and contracted hours fixed, costs Sunday waste separately, and includes the £640 weekly crew, about £550 notice exit and a provision for losing a baker. Gate four applies only if the tally clears roughly twice (£1,070 divided by the founder's actual average basket) asks per Saturday. In that case, run a time-limited trial on three fixed-term Sunday-only contracts with the end date and kill test written in, plus a separately signed variation for about six midweek par-bake hours from a shorter-week staffer. Neither six-day baker works a Sunday hour or a par-bake hour.",
+    "owner": "the founder",
+    "rationale": "The only lawful staffing the room found was three Sunday-only hires plus par-bake hours, about £640 a week, and that needs about £1,070 of genuinely new weekly takings at a 60 percent margin. Marisol's own estimate of the Sunday ceiling, about £650 with half of it switched from Saturday, leaves about £325 new and £195 contribution, and even zero switching gives only about £390. Once Priya showed that switching nets to nothing across the weekend, the case for opening rests entirely on unmet Saturday demand the founder has never counted. This ruling accepts the risk of a wrong no, which is forgoing Sunday profit for about two months, to avoid a wrong yes: three hires that are hard to unwind and a repeat of Marisol's head baker walking out.",
+    "evidence": "assumed",
+    "dependsOn": [
+     "The bakery is in the UK. If it is in Australia or Germany, penalty rates or Sunday bakery limits require the legal and cost analysis to be redone.",
+     "The contribution margin net of waste is about 60 percent.",
+     "The Sunday crew costs about £640 a week at roughly £15 loaded per hour, with no contractual Sunday premium.",
+     "A reduced Sunday range takes no more than about £650 to £700 a week.",
+     "Half of Saturday askers would return on a Sunday. Priya rated this low confidence, and it sets the ask threshold.",
+     "A tally of customers who ask for a sold-out item is a usable floor for unmet Saturday demand.",
+     "One of the shorter-week staff will voluntarily sign a variation for the midweek par-bake hours."
+    ],
+    "dissents": [
+     {
+      "expert": "Conor Whelan",
+      "position": "The bigger risk is not Sunday but the existing six-day pre-dawn pattern. The founder may need to restructure it even if Sunday never opens.",
+      "reasoning": "If either baker is a night worker averaging over eight hours, no opt-out cures it. One tribunal award or one resignation would cost more than a year of the Sunday contribution argued over. Any written trial rota would also become evidence against the founder.",
+      "tripwire": {
+       "signal": "The eight weeks of timesheets show either baker averaging more than 8 hours per night shift, or a week without 24 hours of uninterrupted rest (or 48 hours per fortnight), or more than a 48-hour weekly average with no signed opt-out.",
+       "by": "When the eight weeks of timesheets are reviewed, before the first counted Saturday"
+      },
+      "costOfIgnoring": "A live working-time claim or the loss of a long-serving baker, which Conor puts above a year of Sunday contribution. The founder also loses any lawful basis for a later Sunday trial."
+     },
+     {
+      "expert": "Marisol Ortega",
+      "position": "The break-even is not honest until it carries a costed line for losing a baker. That line is still unpriced.",
+      "reasoning": "Her failed Sunday cost her a head baker after eight weeks. She believes losing a key baker costs more than a Sunday trial earns. With roughly eight weeks to hire and four training Saturdays, that cost could dwarf the £445 weekly gap.",
+      "tripwire": {
+       "signal": "The written combined break-even reaches the founder with no figure for replacement hiring, cover wages and training Saturdays, or either six-day baker raises fatigue, asks for fewer hours, or resigns.",
+       "by": "When the written break-even is produced, before any Sunday hire is signed"
+      },
+      "costOfIgnoring": "A trial that looks viable on paper fails on the first resignation. Eight weeks of lost production capacity and a repeat of the Bristol failure follow."
+     }
+    ],
+    "undecidable": {
+     "question": "Can this founder's bakery generate the roughly £1,070 a week of genuinely new weekend takings a lawful Sunday crew needs? The no rests on Marisol's untested £650 ceiling and Priya's assumed one-in-two return rate. Both were imported from other shops, not computed from his.",
+     "evidenceNeeded": "Three things are needed. First, six Saturdays of sell-out times per core line and a tally of customers who ask for a sold-out item. Second, the founder's actual average basket and Saturday takings from his till, to compute the threshold as twice £1,070 divided by his basket. Third, his unsold-stock sheets to set the waste-adjusted margin, replacing the assumed 60 percent.",
+     "who": "the founder"
+    }
+   },
+   "seq": 232,
+   "ts": 1793181146099
+  },
+  {
+   "type": "message",
+   "seq": 236,
+   "id": "m_HXn-Boxz",
+   "speaker": "conor",
+   "kind": "floor",
+   "text": "The desk's second point lands, and I made the error. I said Saturday-plus-Sunday staff could walk off Sunday mid-trial. That's wrong if the founder hands over the statutory explanatory statement when they sign. Opt-out notice is then three months, and a twelve-week trial sits inside it. So the two shorter-week staff are lawful Sunday cover. That needs a signed temporary variation with the end date written in, because pulling those Sunday hours back afterwards without one is a unilateral variation. Priya, that removes the £550 notice exit. Does it change anything else on your sheet?",
+   "claims": [
+    {
+     "text": "UK shop-worker Sunday opt-out notice is three months where the employer has given the statutory explanatory statement, so a twelve-week trial fits inside it",
+     "grade": "assumed"
+    },
+    {
+     "text": "removing agreed Sunday hours at trial end without a written end date is a unilateral variation",
+     "grade": "assumed"
+    },
+    {
+     "text": "a temporary signed variation with an end date removes the need for a fixed-term notice exit",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 249,
+   "id": "m_yQPOX92H",
+   "speaker": "marisol",
+   "kind": "floor",
+   "text": "Walk it through with me, because this motion is really about a Tuesday, not a Sunday. A pre-dawn baker in most shops I know is on the bench by four, first bake out by seven, and still laminating or cleaning down at noon. That's eight hours before anyone counts the dough they mixed at the end of yesterday's shift. Do that six days running and the 24-hour rest might just squeak through, but the night-work average is the one I'd bet is already being broken, and nobody can sign that away. I won't put a Sunday on top of a rota that may already be over the line. Conor, if their start is four and they finish at noon, does that make them night workers under the rule?",
+   "claims": [
+    {
+     "text": "pre-dawn bakers in shops I've run typically start around 4am and work through to about noon",
+     "grade": "observed"
+    },
+    {
+     "text": "this founder's two six-day bakers work a similar pattern and may already breach the night-work average",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "decision",
+   "decision": {
+    "motionId": "m2",
+    "motionTitle": "Fix the six-day pattern before any Sunday trial",
+    "decision": "Before any Sunday trial, and whether or not Sunday ever opens, the founder pulls the last eight weeks of timesheets and the signed contracts for both six-day bakers. He checks them against 24 hours' weekly rest, the 48-hour average over the reference period (and whether either baker has signed an opt-out), whether either baker is a night worker under the contract's definition of night time or the default 11pm to 6am, and if so the 8-hour night-work average. Any breach is fixed in the current rota within the same pay cycle it is found, before any Sunday hour is planned.",
+    "owner": "the founder",
+    "rationale": "This ruling rests on cost asymmetry and settled law, not on a finished argument. The argument was cut off after one round: Conor and Priya never spoke, and the strongest objection (that a 4am start may fall outside the night-worker test, which would make the non-waivable limit irrelevant) was never raised or answered in the room. A wrong yes costs a few hours of checking records, while a wrong no leaves a possible existing breach running that cannot be undone, so this ruling accepts the cost of a wrong yes. Everything about the founder's actual bakers is assumed, because Marisol's 4am-to-noon pattern was seen in other shops, not this one.",
+    "evidence": "assumed",
+    "dependsOn": [
+     "The bakery is in the UK, so the Working Time Regulations apply as recorded earlier.",
+     "The founder has, or can rebuild, timesheets or clock-in records for the two bakers covering the last eight weeks.",
+     "The two bakers really are six-day pre-dawn workers as the brief states, not people whose sixth day is a short shift."
+    ],
+    "dissents": [],
+    "undecidable": {
+     "question": "Are the founder's two bakers night workers under UK rules, and does either currently breach weekly rest, the 48-hour average or the night-work average? This decides whether the fix is a rota tweak, a restructure, or nothing at all.",
+     "evidenceNeeded": "Each baker's actual start and finish times for eight weeks, including any evening-before dough prep; the contract's definition of night time, if any; whether either baker has signed a 48-hour opt-out; and an employment lawyer's reading of whether three or more hours regularly fall inside night time.",
+     "who": "The founder pulls the records, then puts the night-worker question to an employment lawyer (Conor's question, still unanswered in this room)."
+    }
+   },
+   "seq": 254,
+   "ts": 1793181463171
+  },
+  {
+   "type": "message",
+   "seq": 262,
+   "id": "m_PgiXTVtZ",
+   "speaker": "priya",
+   "kind": "closing",
+   "text": "Where I land: not now, and a trial only if the Saturday count clears. The number that decides it is about £1,070 a week of genuinely new weekend takings. Confidence on that: low, because Marisol's £650 ceiling and my one-in-two return rate both come from other shops. What would the till have to show? Six Saturdays of core lines selling out, with sold-out asks at roughly twice £1,070 divided by his own average basket. If Saturdays aren't selling out, I'm a flat no. And the line for losing a baker gets priced before any trial starts.",
+   "claims": [
+    {
+     "text": "The bakery needs about £1,070 a week of new weekend takings to cover a lawful Sunday crew",
+     "grade": "assumed"
+    },
+    {
+     "text": "The £650 ceiling and the one-in-two return rate are imported from other shops, not computed from this one",
+     "grade": "assumed"
+    },
+    {
+     "text": "If Saturdays don't sell out, there is no unmet demand for Sunday to capture",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 263,
+   "id": "m_jtH3MAqp",
+   "speaker": "conor",
+   "kind": "closing",
+   "text": "I land on no Sunday for now, and I'd keep my dissent on record. The six-day pre-dawn pattern is the exposure he already carries, whether or not Sunday ever opens. Lawful, lawful but risky, or unlawful: today I can't tell you which one he's in. Eight weeks of timesheets and the two signed contracts would move me. If they show 24 hours' weekly rest, no night-work breach and no contract variation needed, I'd back a fixed-term Sunday crew trial. And if he turns out not to be in the UK, none of this advice applies.",
+   "claims": [
+    {
+     "text": "the existing six-day pre-dawn pattern is a compliance exposure regardless of Sunday",
+     "grade": "assumed"
+    },
+    {
+     "text": "timesheets and contracts showing compliance would make a fixed-term Sunday-crew trial lawful",
+     "grade": "assumed"
+    },
+    {
+     "text": "the UK legal analysis does not transfer to Australia or Germany",
+     "grade": "assumed"
+    }
+   ]
+  },
+  {
+   "type": "message",
+   "seq": 264,
+   "id": "m_-0VdHd1V",
+   "speaker": "marisol",
+   "kind": "closing",
+   "text": "Not now. Walk it through with me: Sunday, 4am, the first bake goes in, the shop shuts at two. Three fixed-term hires, a par-bake run done midweek by a shorter-week staffer, and neither six-day baker on the bench. And then someone's ill. Who covers? Today nobody can name that person, and it ends up being me or one of them. That's how I lost a head baker in eight weeks. What moves me: a named, trained Sunday cover who isn't one of the two, and a priced line for losing a baker.",
+   "claims": [
+    {
+     "text": "a head baker quit after eight weeks of covering Sunday bakes",
+     "grade": "observed"
+    },
+    {
+     "text": "without named cover, Sunday gaps fall on the two six-day bakers or the rota lead",
+     "grade": "assumed"
+    },
+    {
+     "text": "the break-even lacks a priced line for losing a baker",
+     "grade": "assumed"
+    }
+   ]
+  }
+ ]
+}

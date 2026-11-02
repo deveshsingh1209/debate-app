@@ -1,0 +1,48 @@
+{
+  "name": "debate-app",
+  "version": "0.1.0",
+  "description": "A panel of AI experts argues your decision out live, chaired by a moderator, and writes you a report. Runs on your own computer with your own AI account.",
+  "license": "MIT",
+  "author": "Devesh Singh",
+  "homepage": "https://github.com/deveshsingh1209/debate-app#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deveshsingh1209/debate-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deveshsingh1209/debate-app/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "npm run dev -w server",
+    "dev:web": "npm run dev -w web",
+    "build": "npm run build -w web && npm run build -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w web",
+    "start": "node scripts/start.mjs",
+    "demo": "node scripts/start.mjs --mock",
+    "doctor": "tsx scripts/doctor.ts",
+    "qa": "npm run qa -w server && npm run qa -w web && node scripts/start.selftest.mjs",
+    "security-test": "tsx server/scripts/security-test.mts",
+    "e2e": "npm run build && playwright test -c e2e/playwright.config.ts",
+    "e2e:shots": "E2E_DOCS_SHOTS=1 npm run e2e",
+    "import-backup": "tsx server/scripts/import-backup.mts",
+    "metrics": "tsx scripts/transcript-metrics.ts",
+    "eval": "tsx scripts/eval/eval.ts",
+    "notify:test": "tsx server/scripts/notify-test.mts",
+    "notify:chat-id": "tsx server/scripts/notify-chat-id.mts"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "concurrently": "^9.1.0"
+  }
+}

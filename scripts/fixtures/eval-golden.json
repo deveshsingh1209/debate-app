@@ -1,0 +1,48 @@
+{
+  "baseline": {
+    "realismIndex": 39.6,
+    "expertTurns": 6,
+    "wordsCv": 0.09,
+    "guards": {
+      "motions": 1,
+      "meanTopRung": 3,
+      "freshPerCheckpoint": 2.5,
+      "defeatersLanded": 0,
+      "dissents": 1,
+      "rulingsAboveAssumed": 0,
+      "unsupportedFigures": null,
+      "lintRewriteRate": null
+    },
+    "rulings": 1,
+    "dissents": 1,
+    "rulingsWithOwner": 1,
+    "rulingsWithStopRule": 1,
+    "figureTurns": 0,
+    "figureTurnsWithDerivation": 0,
+    "citations": 6,
+    "silentSeats": []
+  },
+  "target": {
+    "realismIndex": 89.6,
+    "expertTurns": 17,
+    "wordsCv": 1.18,
+    "guards": {
+      "motions": 1,
+      "meanTopRung": 3,
+      "freshPerCheckpoint": 4,
+      "defeatersLanded": 0,
+      "dissents": 1,
+      "rulingsAboveAssumed": 1,
+      "unsupportedFigures": null,
+      "lintRewriteRate": null
+    },
+    "rulings": 1,
+    "dissents": 1,
+    "rulingsWithOwner": 1,
+    "rulingsWithStopRule": 1,
+    "figureTurns": 0,
+    "figureTurnsWithDerivation": 0,
+    "citations": 0,
+    "silentSeats": []
+  }
+}

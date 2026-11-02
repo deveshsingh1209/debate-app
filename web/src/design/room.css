@@ -1,0 +1,330 @@
+/* ============================================================
+   THE ROOM — the realism engine, rendered
+   Seats, the table strip, tension, the motion bar, pauses,
+   concessions, and the room's sound-and-display settings.
+   Tokens only; every loop stops under reduced motion (system.css).
+   ============================================================ */
+
+/* ---------- a seat ---------- */
+
+.seat {
+  --seat-size: 34px;
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: var(--seat-size);
+  height: var(--seat-size);
+  flex: none;
+}
+.seat-disc {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--r-round);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-sans);
+  font-size: calc(var(--seat-size) * 0.36);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--pc-ink);
+  background: color-mix(in oklab, var(--pc) 15%, var(--surface));
+  border: 1px solid color-mix(in oklab, var(--pc) 40%, transparent);
+  transition: background-color var(--dur-2) var(--ease-out);
+}
+.seat-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: var(--r-round);
+  border: 2px solid transparent;
+  pointer-events: none;
+}
+.seat.speaking .seat-disc { background: color-mix(in oklab, var(--pc) 26%, var(--surface)); }
+.seat.speaking .seat-ring { border-color: var(--pc-ink); animation: seat-breathe 1.8s var(--ease-in-out) infinite; }
+.seat.thinking .seat-ring {
+  border: 2px dashed color-mix(in oklab, var(--pc-ink) 75%, transparent);
+  animation: seat-turn 8s linear infinite;
+}
+/* Heat is a second, outer ring: no glow, just a warmer edge. */
+.seat-heat {
+  position: absolute;
+  inset: -6px;
+  border-radius: var(--r-round);
+  box-shadow: 0 0 0 1.5px var(--seat-heat, var(--heat-warm));
+  pointer-events: none;
+}
+.seat.boiling .seat-heat { animation: seat-heat 1.4s var(--ease-in-out) infinite; }
+.seat-hand {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--r-round);
+  background: var(--text);
+  border: 2px solid var(--ground);
+}
+.seat-name { position: absolute; top: 100%; margin-top: 4px; font-size: var(--fs-12); color: var(--muted); white-space: nowrap; }
+
+@keyframes seat-breathe {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.07); opacity: 0.55; }
+}
+@keyframes seat-turn { to { transform: rotate(360deg); } }
+@keyframes seat-heat {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ---------- the table strip ---------- */
+
+.table-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--ground);
+  flex: none;
+  min-height: 48px;
+}
+.ts-seats { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ts-crosstalk { font-size: var(--fs-12); font-weight: 600; color: var(--warning); white-space: nowrap; }
+.ts-spacer { flex: 1; }
+.ts-clock { font-size: var(--fs-13); color: var(--muted); }
+
+/* With the rails open, the left rail already shows every seat; the strip
+   keeps the room's state (crosstalk, tension, clock) and drops the faces. */
+@media (min-width: 1101px) {
+  .wr-body .wr-centre .ts-seats { display: none; }
+  .wr-body .wr-centre .table-strip.faces-only { display: none; }
+}
+
+@media (max-width: 640px) {
+  .table-strip { flex-wrap: wrap; gap: 8px 12px; padding: 8px 14px; }
+  .ts-seats { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; padding: 6px 4px; margin: -6px -4px; }
+  .ts-crosstalk { order: 3; flex-basis: 100%; }
+}
+
+.tension { display: inline-flex; align-items: center; gap: 8px; }
+.tension-k { font-size: var(--fs-12); color: var(--muted); min-width: 4.5em; text-align: right; }
+.tension-track {
+  position: relative;
+  width: 72px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--active);
+}
+.tension-fill { position: absolute; inset: 0; border-radius: 2px; transform-origin: left; transition: transform var(--dur-3) var(--ease-out), background-color var(--dur-3) var(--ease-out); }
+.tension-tick { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--faint); }
+
+/* ---------- the motion bar ---------- */
+
+html .mbar {
+  background: var(--ground);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px 12px;
+}
+.mbar-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.mbar-k { font-size: var(--fs-12); color: var(--muted); font-weight: 500; }
+.mbar-round { color: var(--faint); font-weight: 400; }
+html .mbar-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-20);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+  margin: 4px 0 10px;
+  color: var(--text);
+  text-wrap: balance;
+}
+
+.agenda-pips { display: inline-flex; gap: 4px; align-items: center; }
+.pip { width: 16px; height: 4px; border-radius: 2px; background: var(--active); }
+.pip.done { background: var(--muted); }
+.pip.active { background: var(--accent-line); }
+.pip.added { background: transparent; box-shadow: inset 0 0 0 1px var(--warning); }
+.pip.dropped { background: transparent; box-shadow: inset 0 0 0 1px var(--control); opacity: 0.6; }
+
+.rung:not(:last-child)::after { background: var(--border); }
+.rung.on:not(:last-child)::after { background: var(--muted); }
+.rung-dot { border-color: var(--control); width: 8px; height: 8px; }
+.rung.on .rung-dot { background: var(--muted); border-color: var(--muted); }
+.rung.now .rung-dot { background: var(--accent-line); border-color: var(--accent-line); box-shadow: 0 0 0 3px var(--accent-soft); animation: none; }
+.rung-name {
+  font-family: var(--font-sans);
+  font-size: var(--fs-12);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--faint);
+}
+.rung.on .rung-name { color: var(--muted); }
+.rung.now .rung-name { color: var(--text); font-weight: 600; }
+
+/* ---------- a pause ---------- */
+
+.pause-beat {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 6px;
+  margin: 14px 0 18px;
+  font-size: var(--fs-13);
+  color: var(--faint);
+}
+.pb-dots { display: inline-flex; gap: 4px; }
+.pb-dots i { width: 4px; height: 4px; border-radius: var(--r-round); background: var(--control); }
+.pb-label { font-style: italic; color: var(--muted); }
+.pb-len { color: var(--faint); }
+.pb-run {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 120px;
+  height: 1px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+/* Live only: the hairline fills for exactly as long as the room was quiet. */
+.pause-beat.live .pb-run::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--muted);
+  transform-origin: left;
+  animation: pause-run var(--pause-ms, 2000ms) linear both;
+}
+.pause-beat.live .pb-dots i { animation: pause-dot 1.2s var(--ease-in-out) 2 both; }
+.pause-beat.live .pb-dots i:nth-child(2) { animation-delay: 0.2s; }
+.pause-beat.live .pb-dots i:nth-child(3) { animation-delay: 0.4s; }
+@keyframes pause-run { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes pause-dot { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+
+/* ---------- a concession ---------- */
+
+.concession {
+  margin: 6px 0 22px;
+  padding: 12px 16px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--sc-ink);
+  border-radius: 0 var(--r-2) var(--r-2) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 560px;
+}
+.cn-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.cn-who { font-weight: 600; color: var(--sc-ink); font-size: var(--fs-14); }
+.cn-kind { font-size: var(--fs-14); color: var(--text); }
+.cn-scale { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; }
+.cn-end { font-size: var(--fs-12); color: var(--faint); }
+.cn-track { position: relative; height: 16px; margin: 0 6px; }
+.cn-track::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--control); }
+.cn-stop {
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: var(--r-round);
+  background: var(--control);
+  transform: translate(-50%, -50%);
+}
+.cn-stop.from { width: 11px; height: 11px; background: var(--surface); box-shadow: inset 0 0 0 2px color-mix(in oklab, var(--sc-ink) 60%, var(--control)); }
+.cn-stop.to { width: 12px; height: 12px; background: var(--sc-ink); box-shadow: 0 0 0 3px var(--surface); }
+.cn-span {
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  background: var(--sc-ink);
+  transform-origin: left;
+}
+.cn-span.down { transform-origin: right; }
+.row.arrive .cn-span { animation: cn-move 700ms var(--ease-out) 150ms both; }
+@keyframes cn-move { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.cn-meta { display: flex; gap: 14px; flex-wrap: wrap; font-size: var(--fs-13); color: var(--muted); }
+.cn-meta b { color: var(--text); font-weight: 600; }
+.cn-cost { font-size: var(--fs-13); color: var(--faint); }
+
+/* ---------- sound and display ---------- */
+
+.rs { position: relative; }
+.rs-toggle { gap: 8px; }
+.rs-dot { width: 7px; height: 7px; border-radius: var(--r-round); background: var(--control); flex: none; }
+.rs-dot.on { background: var(--positive); }
+.rs-pop {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 40;
+  width: 320px;
+  padding: 14px;
+  background: var(--raised);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2);
+  box-shadow: var(--shadow-float);
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+.rs-row { display: grid; grid-template-columns: 64px 1fr auto; align-items: center; gap: 10px; }
+/* Off: the controls fade, the row's name stays readable (it is text, not a disabled control). */
+.rs-row.off > :not(.rs-k) { opacity: 0.55; }
+.rs-k { font-size: var(--fs-13); color: var(--muted); }
+.rs-v { font-size: var(--fs-13); color: var(--muted); min-width: 3em; text-align: right; }
+.rs-note { font-size: var(--fs-12); color: var(--faint); }
+.rs-cues { display: flex; flex-wrap: wrap; gap: 6px; margin-left: 74px; }
+.rs-cue {
+  font-size: var(--fs-12);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--r-1);
+  padding: 3px 8px;
+  min-height: 28px;
+}
+.rs-cue:hover { color: var(--text); border-color: var(--control); }
+@media (max-width: 560px) {
+  .rs-pop { position: fixed; left: 12px; right: 12px; top: 64px; width: auto; }
+}
+
+.switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  border-radius: var(--r-round);
+  background: var(--active);
+  border: 1px solid var(--control);
+  justify-self: start;
+  transition: background-color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
+}
+.switch-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--r-round);
+  background: var(--muted);
+  transition: transform var(--dur-2) var(--ease-out), background-color var(--dur-2) var(--ease-out);
+}
+.switch.on { background: var(--primary-fill); border-color: var(--primary-fill); }
+.switch.on .switch-knob { transform: translateX(16px); background: var(--primary-ink); }
+
+.range { width: 100%; accent-color: var(--accent-line); }
+
+/* A segmented choice: the selected option carries the one accent line. */
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: var(--r-1); overflow: hidden; justify-self: start; }
+.seg-opt {
+  font-size: var(--fs-13);
+  color: var(--muted);
+  padding: 0 10px;
+  min-height: 30px;
+  border-left: 1px solid var(--border);
+  transition: color var(--dur-1) var(--ease-out), box-shadow var(--dur-1) var(--ease-out);
+}
+.seg-opt:first-child { border-left: 0; }
+.seg-opt:hover:not(:disabled) { color: var(--text); background: var(--active); }
+.seg-opt.on { color: var(--text); box-shadow: inset 0 -2px 0 var(--accent-line); }
+.seg-opt:disabled { cursor: not-allowed; }

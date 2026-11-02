@@ -1,0 +1,27 @@
+# ADVANCED, OPTIONAL. Read docs/DOCKER.md first.
+# Published on this computer's 127.0.0.1 only, never on your network.
+services:
+  debate:
+    build: .
+    ports:
+      - "127.0.0.1:${PORT:-8794}:8794"
+    environment:
+      # Optional. Inside a container the app listens on all interfaces, so it
+      # always needs a password. Leave this unset and the first start makes one,
+      # prints it once (`docker compose logs`) and keeps it in ./data/.access-password.
+      ACCESS_PASSWORD: ${ACCESS_PASSWORD:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      # Claude Code login: run `claude setup-token` on your machine and put the
+      # token in .env as CLAUDE_CODE_OAUTH_TOKEN. Alternatively mount ~/.claude (below).
+      CLAUDE_CODE_OAUTH_TOKEN: ${CLAUDE_CODE_OAUTH_TOKEN:-}
+      FOUNDER_NAME: ${FOUNDER_NAME:-}
+    volumes:
+      - ./data:/app/data
+      # Claude login passthrough, Linux hosts (macOS keeps the login in the
+      # Keychain, where a container cannot read it; use the token above):
+      # - ~/.claude:/home/node/.claude
+      # - ~/.claude.json:/home/node/.claude.json
+      # ChatGPT (Codex) login:
+      # - ~/.codex:/home/node/.codex
+    restart: unless-stopped

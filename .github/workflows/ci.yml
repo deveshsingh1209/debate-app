@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: ${{ matrix.os }} / Node ${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
+    # Windows has not had a green run yet: it reports, it does not block.
+    # Remove this line once it passes.
+    continue-on-error: ${{ matrix.os == 'windows-latest' }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      # Linux and macOS: the full suite. Windows: the same suites minus the
+      # POSIX-only ones (each named, with the reason, in scripts/ci/qa.mjs).
+      - run: npm run qa
+        if: runner.os != 'Windows'
+      - run: node scripts/ci/qa.mjs
+        if: runner.os == 'Windows'
+      # Boots servers and checks POSIX sandbox and file-mode rules; Linux and macOS only.
+      - run: npm run security-test
+        if: runner.os != 'Windows'
+
+  hygiene:
+    name: Release hygiene
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Secrets and personal data (tracked files)
+        run: node scripts/release/scan-secrets.mjs
+      - name: Production licences
+        run: node scripts/release/licenses.mjs
+      - name: Known vulnerabilities
+        run: npm audit --audit-level=moderate
