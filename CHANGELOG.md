@@ -15,8 +15,14 @@ All notable changes are recorded here. Versions follow [Semantic Versioning](htt
 - The realism lint flags first-person anecdote told as fact (recorded, never rewritten).
 - Cost estimates in the app, README and reference docs are labelled uncalibrated; actual usage can be much higher.
 - The Claude sign-in readiness check uses the same isolated settings as the agents, so a global API-key helper no longer makes the door look ready.
+- The database is Node's built-in SQLite (`node:sqlite`) instead of `better-sqlite3`, so installing compiles nothing and needs no build tools on any system. The database file, schema and settings are unchanged; an existing `data/` folder opens as it is.
+- Node.js 22.13 or newer is required (23.0-23.3 are not supported), the first versions with built-in SQLite. The start files, `npm start` and `npm run doctor` check this and explain how to update. The Docker image uses Node 24 and no longer installs a compiler.
+- `glob` is pinned to 14.0.3 through an npm override, which clears the `npm audit` advisories in `glob`/`minimatch`.
+- CI checks after every install that no package compiles native code, and runs one Linux job on Node 22.13.0, the minimum.
 
 ### Fixed
+- Installing failed on Windows without Visual Studio Build Tools (and on Mac or Linux without Xcode tools or build-essential): `better-sqlite3` 13 publishes no prebuilt binaries, so npm compiled it.
+- Node 22.13-24.14 and 25.0-25.6 no longer print "ExperimentalWarning: SQLite is an experimental feature" when the app starts. Only that warning is filtered; every other warning still prints.
 - Claude Code error results are no longer accepted as answers; an expired sign-in is reported as a sign-in problem.
 - The launcher no longer reuses a running demo server for a real session (or the reverse).
 - The dissent section no longer repeats a deadline; chart value labels no longer overflow the chart.
@@ -33,7 +39,6 @@ All notable changes are recorded here. Versions follow [Semantic Versioning](htt
 - The research token envelope counts only what research adds, never stops a call before its first search, and a stopped call says "Research incomplete" instead of returning nothing. The write step's input is capped, and a double-counting bug in the token meter is fixed.
 
 ### Known issues
-- `npm audit` reports 3 moderate advisories in `glob`/`minimatch`, pulled in by `@fastify/static`. They affect glob patterns, which the app sets itself (never from user input); the only automatic fix is a breaking downgrade, so they are tracked rather than forced.
 - Evidence grading, research cost, the research envelope fix and Quick session length are proven in live debates (2026-11-01). Pause/resume is proven offline only; Standard and Deep lengths are not yet calibrated live.
 
 ## [0.1.0] - 2026-11-02

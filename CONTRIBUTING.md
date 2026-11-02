@@ -12,7 +12,7 @@ Thanks for helping. This is a local-first, single-user app: it runs on your mach
 
 ## Setup
 
-Node 22 or newer.
+Node 22.13 or newer (the app uses Node's built-in SQLite). No compiler or build tools are needed; keep it that way: CI fails if a dependency compiles native code at install (`scripts/ci/no-native-build.mjs`).
 
 ```bash
 npm install

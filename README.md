@@ -19,24 +19,24 @@ You do not need to know how to code. Three steps.
 
 ## Install in 3 steps
 
-You need two things before you start: **Node.js** (a free helper program the app runs on; step 1 below) and **one AI account** (step 3 below). The first start downloads the rest by itself, so it needs internet and a few minutes. Later starts take seconds.
+You need two things before you start: **Node.js** version 22.13 or newer (a free helper program the app runs on; step 2 below; the current LTS from nodejs.org is fine) and **one AI account** (see "Connect your AI" below). The first start downloads the rest by itself, so it needs internet and a few minutes. Nothing is compiled, so you need no developer tools (no Visual Studio, Xcode or build tools). Later starts take seconds.
 
 ### On a Mac
 
 1. **Get the app.** On this page, under **Releases** on the right, open the latest release and click **debate-app-…zip**. (The green **Code** button, then **Download ZIP**, also works; that copy needs the right-click step below on first start.) Open your Downloads folder and double-click the ZIP to unzip it. Drag the unzipped folder somewhere you will find it, for example Documents.
-2. **Install Node.js (once).** Go to [nodejs.org](https://nodejs.org), click the big green **LTS** button, open the file it downloads and click Continue / Install until it finishes. Skip this if you already have Node.js; the launcher checks and tells you.
+2. **Install Node.js (once).** Go to [nodejs.org](https://nodejs.org), click the big green **LTS** button, open the file it downloads and click Continue / Install until it finishes. Skip this if you already have Node.js 22.13 or newer; the launcher checks and tells you. An older Node.js is updated the same way.
 3. **Start it.** In the app folder double-click **Start on Mac.command**. The first time, macOS may say it "cannot be opened because it is from an unidentified developer": right-click the file, choose **Open**, then click **Open** again. A window with plain text appears, does its setup, and your web browser opens on the app. Leave that window open while you use the app.
 
 ### On Windows
 
 1. **Get the app.** On this page, under **Releases** on the right, open the latest release and click **debate-app-…zip** (or click the green **Code** button, then **Download ZIP**). Open your Downloads folder, right-click the ZIP and choose **Extract All**, then **Extract**. Move the new folder somewhere you will find it, for example Documents.
-2. **Install Node.js (once).** Go to [nodejs.org](https://nodejs.org), click the big green **LTS** button, open the file it downloads and click Next / Install until it finishes. Keep the default choices. Skip this if you already have it; the launcher checks and tells you.
+2. **Install Node.js (once).** Go to [nodejs.org](https://nodejs.org), click the big green **LTS** button, open the file it downloads and click Next / Install until it finishes. Keep the default choices. Skip this if you already have Node.js 22.13 or newer; the launcher checks and tells you. An older Node.js is updated the same way.
 3. **Start it.** In the app folder double-click **Start on Windows.bat**. If Windows shows a blue "Windows protected your PC" box, click **More info**, then **Run anyway**. A window with plain text appears, does its setup, and your web browser opens on the app. Leave that window open while you use the app.
 
 ### On Linux
 
 1. **Get the app.** Download **debate-app-…zip** from the latest release under **Releases** and unzip it (or `git clone` the repository). A **Code → Download ZIP** copy works too but loses the start file's permission; the `chmod` line in step 3 fixes that.
-2. **Install Node.js 22 or newer (once).** Follow the "Linux" instructions on [nodejs.org](https://nodejs.org/en/download). Your distribution's own `nodejs` package is often too old.
+2. **Install Node.js 22.13 or newer (once).** Follow the "Linux" instructions on [nodejs.org](https://nodejs.org/en/download) for the LTS version (with nvm: `nvm install --lts`). Your distribution's own `nodejs` package is often too old.
 3. **Start it.** Open a terminal in the app folder and run `./"Start on Linux.sh"` (if it says permission denied: `chmod +x "Start on Linux.sh"` first). Your browser opens on the app.
 
 ### Every time after that
@@ -103,7 +103,7 @@ Debates are thorough, not quick: often an hour or more. The app is built for har
 
 ## Troubleshooting
 
-**Node.js is missing or too old.** The start window says so and offers to open nodejs.org. Install the **LTS** version, then double-click the start file again. If you just installed it and still see the message, close the start window and open it again. You need version 22 or newer.
+**Node.js is missing or too old.** The start window says so and offers to open nodejs.org. Install the **LTS** version, then double-click the start file again. If you just installed it and still see the message, close the start window and open it again. You need version 22.13 or newer (the app uses the database built into Node.js from that version); installing the current LTS over an older Node.js updates it.
 
 **macOS says the file cannot be opened.** Right-click **Start on Mac.command**, choose **Open**, then **Open**. You only need to do this once. If nothing happens at all (most likely with a **Code → Download ZIP** copy, which GitHub saves without the file's "can run" permission; the release zip keeps it), open Terminal, type `chmod +x ` (with a space after it), drag the file into the Terminal window, press Enter, then try again.
 

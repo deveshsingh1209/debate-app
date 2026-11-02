@@ -96,7 +96,7 @@ gh repo edit OWNER/REPO --enable-wiki=false --enable-projects=false --enable-iss
 
 In the web UI:
 - [ ] **Settings → Code security**: secret scanning and push protection on (free for public repositories).
-- [ ] **Settings → Branches**: protect `main`: require a pull request and the CI checks `ubuntu-latest / Node 22`, `ubuntu-latest / Node 24`, `macos-latest / Node 22`, `macos-latest / Node 24` and `Release hygiene`. Do not require the Windows checks until they have passed once (they are non-blocking in `ci.yml` for now).
+- [ ] **Settings → Branches**: protect `main`: require a pull request and the CI checks `ubuntu-latest / Node 22`, `ubuntu-latest / Node 22.13.0`, `ubuntu-latest / Node 24`, `macos-latest / Node 22`, `macos-latest / Node 24` and `Release hygiene`. Do not require the Windows checks until they have passed once (they are non-blocking in `ci.yml` for now).
 - [ ] **Settings → Actions → General**: workflow permissions "Read repository contents" (the release job asks for write itself).
 - [ ] Watch the first CI run. If the Windows jobs pass, delete the `continue-on-error` line in `.github/workflows/ci.yml` and add them to branch protection.
 

@@ -92,16 +92,23 @@ Browser notifications need an open tab, and they only work on `http://localhost`
 
 **The token** is read once when the server starts and then removed from its environment. It is never logged, never shown in the app and never returned by any API. If Telegram cannot be reached, the app logs it once and the debate carries on.
 
+## Requirements and storage
+
+- **Node.js 22.13 or newer** (`engines`: `^22.13.0 || >=23.4.0`; 23.0-23.3 lack the built-in database). The start files, `npm start` and `npm run doctor` check it. CI runs Node 22.13.0, 22 and 24.
+- **No build tools.** No dependency compiles native code at install; the native parts that remain (esbuild, Vite's rolldown and lightningcss, the Agent SDK's sharp image libraries and ripgrep, fsevents on macOS) are prebuilt binaries npm downloads. `node scripts/ci/no-native-build.mjs` checks this after an install.
+- **Database:** one SQLite file, `DATA_DIR/debate.db`, opened with Node's built-in `node:sqlite` (`server/src/sqlite.ts`) in WAL mode, `synchronous=NORMAL`, 5 s busy timeout. Snapshots go to `DATA_DIR/backups/` at start and daily (seven kept). A `debate.db` written by 0.1.0 (better-sqlite3) opens unchanged.
+- On Node 22.13-24.14 and 25.0-25.6, Node prints "ExperimentalWarning: SQLite is an experimental feature" on first use; the app drops that one warning while it loads the module, and no other.
+
 ## Development
 
 | Command | What it does |
 |---|---|
 | `npm run dev` | Server on :8794 (watch mode) and the web app on http://localhost:5173. |
-| `npm run doctor` | First-run checklist: Node, Claude/OpenAI/Codex credentials (no model calls), port, data folder, SQLite. |
+| `npm run doctor` | First-run checklist: Node (22.13 or newer), Claude/OpenAI/Codex credentials (no model calls), port, data folder, built-in SQLite. |
 | `npm start` / `npm run demo` | Build if needed and serve; `demo` runs the real engine with scripted models, no credentials. |
 | `npm run build` | Production build of the web app and the server bundle. |
 | `npm run typecheck` | Type-check server and web. |
-| `npm run qa` | Report renderer checks and the offline self-tests (prompts, OpenAI and Codex clients, floor director and the live floor, trailer, linter, dossier and ledger wiring, research contract, research cost budget, doors, start, human calibration, realism logic, budget, notifications, engine, the MOCK live path, web reducer, metrics, doctor). No network, no keys. |
+| `npm run qa` | Report renderer checks and the offline self-tests (SQLite, including a 0.1.0 database, prompts, OpenAI and Codex clients, floor director and the live floor, trailer, linter, dossier and ledger wiring, research contract, research cost budget, doors, start, human calibration, realism logic, budget, notifications, engine, the MOCK live path, web reducer, metrics, doctor). No network, no keys. |
 | `npm run security-test` | Boots the server several ways (and the dev server) on port 8841 and attacks it, including the research desk, the upload and agent-tool rules, and the Telegram checks against a fake Telegram on your machine. `SECURITY_TEST_PORT` picks another port. |
 | `npm run notify:test` | Sends one test message to your Telegram. Needs the two Telegram variables. Tests never run it. |
 | `npm run notify:chat-id` | Prints the chat id of whoever has messaged your bot. Needs `TELEGRAM_BOT_TOKEN`. |

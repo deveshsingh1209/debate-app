@@ -35,4 +35,5 @@ These are dated records of how the project got here, not reference documentation
 | [COSTFIX-REPORT.md](COSTFIX-REPORT.md) | The research desk's cost: search-only loop, server-side page reading, a metered 80,000-token budget per call. |
 | [MERGE2-REPORT.md](MERGE2-REPORT.md) | How calib, start, doors, secfix and costfix were merged into `integ2`. |
 | [RELEASE-REPORT.md](RELEASE-REPORT.md) | Public-release readiness: secrets and licence audits, report CSP and Chrome sandbox, CI matrix, release zip. |
+| [SQLITE-REPORT.md](SQLITE-REPORT.md) | Node's built-in SQLite replaces better-sqlite3: no compiler to install, Node 22.13 minimum, the warning filter, old databases still open, audit and CI fixes. |
 | [ENGINE-REPORT.md](ENGINE-REPORT.md) | Steps 2b-5 to 2b-7: dossiers, stakes and the belief ledger wired in, the new report sections, the calibrated realism index (every band decision), and the live floor director. |
