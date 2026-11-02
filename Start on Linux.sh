@@ -42,8 +42,8 @@ if ! command -v node >/dev/null 2>&1; then
   need_node "not installed on this computer"
 fi
 
-# 22.13 is the first Node with the built-in database (node:sqlite) the app uses.
-if ! node -e 'const [a, b] = process.versions.node.split(".").map(Number); process.exit(a > 22 || (a === 22 && b >= 13) ? 0 : 1)' 2>/dev/null; then
+# The built-in database the app uses (node:sqlite) needs Node 22.13+, or 23.4+ on the short-lived 23 line.
+if ! node -e 'const [a, b] = process.versions.node.split(".").map(Number); process.exit(a > 23 || (a === 23 && b >= 4) || (a === 22 && b >= 13) ? 0 : 1)' 2>/dev/null; then
   need_node "too old (you have $(node -v 2>/dev/null))"
 fi
 

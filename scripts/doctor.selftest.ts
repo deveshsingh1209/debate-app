@@ -4,7 +4,7 @@
  *   npx tsx scripts/doctor.selftest.ts
  */
 import assert from 'node:assert/strict';
-import { runChecks, render, summarize, codexAuthPath, nodeAtLeast, realEnv, DOOR_CHECKS, type DoctorEnv, type CmdResult } from './doctor.ts';
+import { runChecks, render, summarize, codexAuthPath, realEnv, DOOR_CHECKS, type DoctorEnv, type CmdResult } from './doctor.ts';
 
 const KEY = 'sk-test-SECRET-1234567890';
 const AKEY = 'sk-ant-api03-SECRET-abcdefghijklmnop';
@@ -69,10 +69,13 @@ const by = (cs: Awaited<ReturnType<typeof runChecks>>, name: string) => {
   assert.ok(!summarize(old).canRunDemo);
   assert.equal(by(await runChecks(fake({ nodeVersion: '22.12.0' })), 'Node.js').level, 'FAIL');
   assert.equal(by(await runChecks(fake({ nodeVersion: 'v22.13.0' })), 'Node.js').level, 'PASS');
-  assert.equal(by(await runChecks(fake({ nodeVersion: '23.0.0' })), 'Node.js').level, 'PASS');
   const newer = await runChecks(fake({ nodeVersion: '26.12.1' }));
   assert.equal(by(newer, 'Node.js').level, 'PASS');
-  assert.ok(nodeAtLeast('22.13.1', '22.13.0') && nodeAtLeast('24.0.0', '22.13.0') && !nodeAtLeast('22.9.9', '22.13.0') && !nodeAtLeast('garbage', '22.13.0'));
+  // 23.0-23.3 came before node:sqlite was unflagged on that line.
+  assert.equal(by(await runChecks(fake({ nodeVersion: '23.3.0' })), 'Node.js').level, 'FAIL');
+  assert.equal(by(await runChecks(fake({ nodeVersion: '23.4.0' })), 'Node.js').level, 'PASS');
+  assert.equal(by(await runChecks(fake({ nodeVersion: 'garbage' })), 'Node.js').level, 'FAIL');
+  assert.equal(by(await runChecks(fake({ nodeVersion: '22.9.9' })), 'Node.js').level, 'FAIL');
 }
 
 // 3. Claude installed and signed in. The account e-mail in the CLI's output never reaches the report.

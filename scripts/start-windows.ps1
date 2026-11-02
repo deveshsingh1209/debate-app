@@ -29,10 +29,10 @@ if (Test-Path (Join-Path $nodeDir 'node.exe')) { $env:Path = "$nodeDir;$env:Path
 $node = Get-Command node -ErrorAction SilentlyContinue
 if (-not $node) { Show-NodeHelp 'not installed on this PC'; exit 1 }
 
-# 22.13 is the first Node with the built-in database (node:sqlite) the app uses.
+# The built-in database the app uses (node:sqlite) needs Node 22.13+, or 23.4+ on the short-lived 23 line.
 $version = (& node -p 'process.versions.node' 2>$null)
 $parsed = $null
-if (-not $version -or -not [version]::TryParse($version, [ref]$parsed) -or $parsed -lt [version]'22.13.0') {
+if (-not $version -or -not [version]::TryParse($version, [ref]$parsed) -or $parsed -lt [version]'22.13.0' -or ($parsed.Major -eq 23 -and $parsed.Minor -lt 4)) {
   Show-NodeHelp "too old (you have $version)"; exit 1
 }
 

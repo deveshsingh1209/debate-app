@@ -9,7 +9,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { openDb, transaction, withoutSqliteWarning, MIN_NODE } from './sqlite.ts';
+import { openDb, transaction, withoutSqliteWarning, nodeSupported, MIN_NODE } from './sqlite.ts';
 
 // Any warning Node prints about SQLite during this run is a failure (Node 22.13-24.14 and 25.0-25.6 would print one).
 const warnings: string[] = [];
@@ -129,6 +129,11 @@ const { default: db, Debates, Events, backupDb } = await import('./db.ts');
 }
 
 assert.match(MIN_NODE, /^22\.13\.0$/);
+assert.ok(nodeSupported(process.versions.node), 'this Node has node:sqlite');
+assert.deepEqual(['22.12.0', '22.13.0', 'v22.23.4', '23.3.0', '23.4.0', '24.0.0', '26.12.1', 'x'].map(nodeSupported), [false, true, true, false, true, true, true, false]);
+// package.json says the same thing.
+const engines = JSON.parse(fs.readFileSync(new URL('../../package.json', import.meta.url), 'utf8')).engines.node;
+assert.equal(engines, '^22.13.0 || >=23.4.0');
 await new Promise((r) => setImmediate(r));
 assert.deepEqual(warnings.filter((w) => /sqlite/i.test(w)), []);
 db.close();

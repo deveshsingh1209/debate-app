@@ -13,7 +13,7 @@
     "url": "https://github.com/deveshsingh1209/debate-app/issues"
   },
   "engines": {
-    "node": ">=22.13.0"
+    "node": "^22.13.0 || >=23.4.0"
   },
   "private": true,
   "type": "module",

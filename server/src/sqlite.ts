@@ -11,8 +11,14 @@ import type { DatabaseSync, StatementSync } from 'node:sqlite';
 
 export type { DatabaseSync, StatementSync };
 
-/** The oldest Node with `node:sqlite` available without a flag. Launchers and the doctor check the same number. */
+/** The oldest Node with `node:sqlite` available without a flag (23.0-23.3 lack it; 23.4 has it). */
 export const MIN_NODE = '22.13.0';
+
+/** Whether Node version `v` (with or without a leading v) has `node:sqlite` unflagged. The launchers apply the same rule. */
+export function nodeSupported(v: string): boolean {
+  const [a, b] = v.replace(/^v/, '').split('.').map(Number);
+  return a > 23 || (a === 23 && b >= 4) || (a === 22 && b >= 13);
+}
 
 /** better-sqlite3's default; how long a write waits for another connection's lock. */
 const BUSY_TIMEOUT_MS = 5000;

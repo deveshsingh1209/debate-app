@@ -37,9 +37,9 @@ if (fs.existsSync('.env')) {
   }
 }
 
-// 22.13 is the first Node with the built-in database (node:sqlite) the app uses. Same number as server/src/sqlite.ts.
+// The built-in database the app uses (node:sqlite) needs Node 22.13+, or 23.4+ on the short-lived 23 line. Same rule as server/src/sqlite.ts.
 const [major, minor] = process.versions.node.split('.').map(Number);
-if (major < 22 || (major === 22 && minor < 13)) {
+if (major < 22 || (major === 22 && minor < 13) || (major === 23 && minor < 4)) {
   die(
     `This app needs Node.js 22.13 or newer; you have ${process.versions.node}.\n` +
       `Install the current "LTS" version from https://nodejs.org (if you already have Node.js, the installer updates it), then run this again.\n` +

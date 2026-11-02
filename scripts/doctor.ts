@@ -17,7 +17,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { probeDoors, type CmdResult } from '../server/src/doors/probe.ts';
-import { MIN_NODE, openDb } from '../server/src/sqlite.ts';
+import { MIN_NODE, nodeSupported, openDb } from '../server/src/sqlite.ts';
 
 export type { CmdResult };
 export type Level = 'PASS' | 'WARN' | 'FAIL';
@@ -50,14 +50,6 @@ export interface DoctorEnv {
   platform?: string;
 }
 
-/** True when version `v` (with or without a leading v) is `min` or newer. */
-export function nodeAtLeast(v: string, min: string): boolean {
-  const a = v.replace(/^v/, '').split('.').map(Number);
-  const b = min.split('.').map(Number);
-  for (let i = 0; i < 3; i++) if (a[i] !== b[i]) return (a[i] ?? 0) > b[i];
-  return true;
-}
-
 /** The check names of the four doors, in the order the app offers them. */
 export const DOOR_CHECKS = ['Claude: sign in', 'Claude: API key', 'ChatGPT: Codex sign-in', 'OpenAI: API key'];
 
@@ -71,7 +63,7 @@ export async function runChecks(d: DoctorEnv): Promise<Check[]> {
 
   // Node
   const major = Number(d.nodeVersion.replace(/^v/, '').split('.')[0]);
-  if (!nodeAtLeast(d.nodeVersion, MIN_NODE)) {
+  if (!nodeSupported(d.nodeVersion)) {
     add({
       name: 'Node.js',
       level: 'FAIL',
